@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file:///mnt/5183FCB2697AD21D/Climaco/Documentos/UnB/program/freelancer/android/brainstorm/BrainstormApp/BrainstormApp.iml" filepath="/mnt/5183FCB2697AD21D/Climaco/Documentos/UnB/program/freelancer/android/brainstorm/BrainstormApp/BrainstormApp.iml" />
-      <module fileurl="file:///mnt/5183FCB2697AD21D/Climaco/Documentos/UnB/program/freelancer/android/brainstorm/BrainstormApp/app/app.iml" filepath="/mnt/5183FCB2697AD21D/Climaco/Documentos/UnB/program/freelancer/android/brainstorm/BrainstormApp/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app-aula.iml" filepath="$PROJECT_DIR$/app-aula.iml" />
     </modules>
   </component>
 </project>

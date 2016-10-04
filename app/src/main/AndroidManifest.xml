@@ -3,6 +3,7 @@
     package="com.reforcointeligente.brainstormapp">
 
     <application
+        android:name=".Controller.Parse.ParseInitializer"
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="@string/app_name"

@@ -23,7 +23,7 @@ public class LessonFragment extends Fragment{
 
         listLesson = (ListView) rootView.findViewById(R.id.list_lesson);
 
-        Button newStudentButton = (Button) rootView.findViewById(R.id.list_new_lesson);
+        Button newLessonButton = (Button) rootView.findViewById(R.id.list_new_lesson);
 
 
         return rootView;

@@ -10,6 +10,8 @@ import com.reforcointeligente.brainstormapp.View.Adapter.TabsAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final int middleTab = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,5 +23,6 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
+        mViewPager.setCurrentItem(middleTab);
     }
 }

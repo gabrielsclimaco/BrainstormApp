@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.reforcointeligente.brainstormapp.R;
+import com.reforcointeligente.brainstormapp.View.Adapter.TabsAdapter;
 
 public class MainActivity extends AppCompatActivity {
 

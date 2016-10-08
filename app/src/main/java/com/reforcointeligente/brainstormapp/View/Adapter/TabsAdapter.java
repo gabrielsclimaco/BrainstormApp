@@ -8,7 +8,7 @@ import com.reforcointeligente.brainstormapp.View.Fragment.StudentFragment;
 
 public class TabsAdapter extends FragmentPagerAdapter{
 
-    private static final int tabsQuantity = 2;
+    private static final int tabsQuantity = 1;
 
     public TabsAdapter(FragmentManager fm){
         super(fm);
@@ -19,10 +19,10 @@ public class TabsAdapter extends FragmentPagerAdapter{
         switch (position){
             case 0:
                 return StudentFragment.newInstance();
-            case 1:
-                return LessoFragment.newInstance();
-            case 2:
-                return TeacherFragment.newInstance();
+//            case 1:
+//                return LessoFragment.newInstance();
+//            case 2:
+//                return TeacherFragment.newInstance();
             default:
                 /* Nothing to do */
                 break;

@@ -10,26 +10,26 @@ import android.widget.ListView;
 
 import com.reforcointeligente.brainstormapp.R;
 
-public class LessonFragment extends Fragment{
+public class TeacherFragment extends Fragment{
 
-    private ListView listLesson;
+    private ListView listTeacher;
 
-    public LessonFragment(){
+    public TeacherFragment(){
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.lesson_fragment, container, false);
+        View rootView = inflater.inflate(R.layout.teacher_fragment, container, false);
 
-        listLesson = (ListView) rootView.findViewById(R.id.list_lesson);
+        listTeacher = (ListView) rootView.findViewById(R.id.list_teacher);
 
-        Button newStudentButton = (Button) rootView.findViewById(R.id.list_new_lesson);
+        Button newStudentButton = (Button) rootView.findViewById(R.id.list_new_teacher);
 
 
         return rootView;
     }
 
-    public static LessonFragment newInstance() {
-        return new LessonFragment();
+    public static StudentFragment newInstance() {
+        return new StudentFragment();
     }
 }

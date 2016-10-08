@@ -6,10 +6,11 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.reforcointeligente.brainstormapp.View.Fragment.LessonFragment;
 import com.reforcointeligente.brainstormapp.View.Fragment.StudentFragment;
+import com.reforcointeligente.brainstormapp.View.Fragment.TeacherFragment;
 
 public class TabsAdapter extends FragmentPagerAdapter{
 
-    private static final int tabsQuantity = 2;
+    private static final int tabsQuantity = 3;
 
     public TabsAdapter(FragmentManager fm){
         super(fm);
@@ -22,8 +23,8 @@ public class TabsAdapter extends FragmentPagerAdapter{
                 return StudentFragment.newInstance();
             case 1:
                 return LessonFragment.newInstance();
-//            case 2:
-//                return TeacherFragment.newInstance();
+            case 2:
+                return TeacherFragment.newInstance();
             default:
                 /* Nothing to do */
                 break;

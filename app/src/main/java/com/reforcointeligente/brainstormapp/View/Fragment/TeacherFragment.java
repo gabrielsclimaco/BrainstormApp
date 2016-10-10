@@ -29,7 +29,7 @@ public class TeacherFragment extends Fragment{
         return rootView;
     }
 
-    public static StudentFragment newInstance() {
-        return new StudentFragment();
+    public static TeacherFragment newInstance() {
+        return new TeacherFragment();
     }
 }

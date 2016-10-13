@@ -10,6 +10,8 @@ public class ParseInitializer extends android.app.Application {
     public void onCreate() {
         super.onCreate();
 
+
+
         initializeParse();
     }
 
@@ -17,7 +19,7 @@ public class ParseInitializer extends android.app.Application {
         try {
             Parse.initialize(new Parse.Configuration.Builder(this)
                     .applicationId("brainstorm-freelancer")
-                    .server("http://brainstorm-freelancer.herokuapp.com/parse/Class")
+                    .server("https://brainstorm-freelancer.herokuapp.com/brainstorm/Class")
                     .clientKey("passwd_for_brainstorm")
                     .build()
             );

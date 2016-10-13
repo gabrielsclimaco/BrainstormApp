@@ -12,7 +12,7 @@ public class Lesson extends ParseObject {
     //valor pago ao professor (valor da hora/aula * horas de aula),
     //lucro da aula (valor total da aula - valor pago ao professor)
 
-    private Date getLessonDate() {
+    private String getLessonDate() {
         return getLessonDate();
     }
 
@@ -20,7 +20,7 @@ public class Lesson extends ParseObject {
         put(getLessonDate(), lessonDate);
     }
 
-    private Time getLessonTime() {
+    private String getLessonTime() {
         return getLessonTime();
     }
 

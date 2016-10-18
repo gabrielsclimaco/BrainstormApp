@@ -19,8 +19,8 @@ public class ParseInitializer extends android.app.Application {
         try {
             Parse.initialize(new Parse.Configuration.Builder(this)
                     .applicationId("brainstorm-freelancer")
-                    .server("https://brainstorm-freelancer.herokuapp.com/brainstorm/Class")
-                    .clientKey("passwd_for_brainstorm")
+                    .server("https://brainstorm-freelancer.herokuapp.com/brainstorm")
+                    .clientKey("euheuheueheuehueuh")
                     .build()
             );
 

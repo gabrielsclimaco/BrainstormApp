@@ -10,4 +10,166 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.reforcointeligente.brainstormapp.View.StudentFormActivity">
 
+    <TextView
+        android:text="Novo aluno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:id="@+id/textViewTitleNewStudent"
+        android:layout_above="@+id/scrollView2"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="45dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:text="Dados do aluno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:id="@+id/textViewTitleStudent"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:layout_marginTop="30dp"
+                android:id="@+id/editTextStudentName"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:hint="Nome"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:id="@+id/editTextStudentAge"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:hint="Idade"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:id="@+id/editTextStudentAddress"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:hint="Endereço"/>
+
+            <TextView
+                android:text="Cidade: "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewStudentCity"
+                android:textSize="18dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/spinnerTeacherCity"
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/textViewStudentCity"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:id="@+id/editTextStudentSchool"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:hint="Colégio"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="phone"
+                android:ems="10"
+                android:id="@+id/editTextStudentCellphone"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:hint="Celular"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/textViewStudentEmail"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:hint="E-mail"/>
+
+            <TextView
+                android:text="Dados do responsável"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:id="@+id/textViewTitleParent"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:id="@+id/editTextStudentParentName"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="30dp"
+                android:layout_alignParentEnd="true"
+                android:hint="Nome"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="phone"
+                android:ems="10"
+                android:id="@+id/editTextStudentParentCellphone"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:hint="Celular"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="phone"
+                android:ems="10"
+                android:id="@+id/editTextStudentPhone"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:hint="Telefone residencial"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/textViewStudentParentEmail"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:hint="E-mail"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
 </RelativeLayout>

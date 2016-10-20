@@ -3,6 +3,8 @@ package com.reforcointeligente.brainstormapp.View;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.reforcointeligente.brainstormapp.R;
+
 public class StudentFormActivity extends AppCompatActivity {
 
     @Override

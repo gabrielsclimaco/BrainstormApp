@@ -1,5 +1,6 @@
 package com.reforcointeligente.brainstormapp.View.Fragment;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.reforcointeligente.brainstormapp.R;
+import com.reforcointeligente.brainstormapp.View.TeacherFormActivity;
 
 public class TeacherFragment extends Fragment{
 
@@ -25,6 +27,13 @@ public class TeacherFragment extends Fragment{
 
         Button newTeacherButton = (Button) rootView.findViewById(R.id.list_new_teacher);
 
+        newTeacherButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), TeacherFormActivity.class);
+                startActivity(intent);
+            }
+        });
 
         return rootView;
     }

@@ -56,14 +56,6 @@ public class Student extends ParseObject {
         put(getStudentSchoolTitle(), studentSchool);
     }
 
-    public String getStudentEmail() {
-        return getString(getStudentEmailTitle());
-    }
-
-    public void setStudentEmail(String studentEmail) {
-        put(getStudentEmailTitle(), studentEmail);
-    }
-
     public String getStudentParentName() {
         return getString(getStudentParentNameTitle());
     }
@@ -122,10 +114,6 @@ public class Student extends ParseObject {
 
     private static String getStudentSchoolTitle() {
         return "colegio_aluno";
-    }
-
-    private static String getStudentEmailTitle() {
-        return "email_aluno";
     }
 
     private static String getStudentParentNameTitle() {

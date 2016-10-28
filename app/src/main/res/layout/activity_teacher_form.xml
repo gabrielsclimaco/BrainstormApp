@@ -183,31 +183,63 @@
 
             <GridLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
                 <CheckBox
-                    android:text="Matéria1"
+                    android:text="Matemática"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/checkBox" />
+                    android:id="@+id/checkBoxMath" />
 
                 <CheckBox
-                    android:text="Matéria2"
+                    android:text="Física"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/checkBox2" />
+                    android:id="@+id/checkBoxPhysics" />
 
                 <CheckBox
-                    android:text="Matéria3"
+                    android:text="Química"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/checkBox3" />
+                    android:id="@+id/checkBoxChemistry" />
 
                 <CheckBox
-                    android:text="Matéria4"
+                    android:text="Biologia"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/checkBox4" />
+                    android:id="@+id/checkBoxBiology" />
+
+                <CheckBox
+                    android:text="Português"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBoxPortuguese"
+                    android:layout_row="1"
+                    android:layout_column="0" />
+
+                <CheckBox
+                    android:text="História"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBoxHistory"
+                    android:layout_row="1"
+                    android:layout_column="1" />
+
+                <CheckBox
+                    android:text="Geografia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBoxGeography"
+                    android:layout_row="1"
+                    android:layout_column="2" />
+
+                <CheckBox
+                    android:text="Outro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBoxOther"
+                    android:layout_row="1"
+                    android:layout_column="3" />
 
             </GridLayout>
 

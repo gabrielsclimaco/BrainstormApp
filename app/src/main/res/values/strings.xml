@@ -1,3 +1,36 @@
 <resources>
     <string name="app_name">BrainstormApp</string>
+    <array name="list_df_cities">
+        <item>Plano Piloto</item>
+        <item>Sudoeste/Octogonal</item>
+        <item>Lago Norte</item>
+        <item>Lago Sul</item>
+        <item>Sobradinho</item>
+        <item>Sobradinho II</item>
+        <item>Jardim Botânico</item>
+        <item>Paranoá</item>
+        <item>Cruzeiro</item>
+        <item>Guará</item>
+        <item>Núcleo Bandeirante</item>
+        <item>Vicente Pires</item>
+        <item>Park Way</item>
+        <item>Águas Claras</item>
+        <item>Taguatinga</item>
+        <item>Samambaia</item>
+        <item>Planaltina</item>
+        <item>Ceilândia</item>
+        <item>Gama</item>
+        <item>Santa Maria</item>
+        <item>São Sebastião</item>
+        <item>Recanto das Emas</item>
+        <item>Riacho Fundo</item>
+        <item>Candangolândia</item>
+        <item>Riacho Fundo II</item>
+        <item>Varjão</item>
+        <item>SCIA</item>
+        <item>Itapoã</item>
+        <item>SIA</item>
+        <item>Fercal</item>
+        <item>Brazlândia</item>
+    </array>
 </resources>

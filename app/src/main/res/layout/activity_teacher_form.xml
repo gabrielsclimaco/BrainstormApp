@@ -61,124 +61,125 @@
                 android:layout_toEndOf="@+id/textViewTeacherAddress"
                 android:hint="Endereço"/>
 
-            <TextView
-                android:text="Cidade: "
-                android:layout_width="wrap_content"
+            <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:id="@+id/editTextTeacherGraduation"
+            android:layout_alignBaseline="@+id/textViewTeacherGraduation"
+            android:layout_alignBottom="@+id/textViewTeacherGraduation"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignLeft="@+id/editTextTeacherEmail"
+            android:layout_alignStart="@+id/editTextTeacherEmail"
+            android:hint="E-mail"/>
+
+            <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="phone"
+            android:ems="10"
+            android:id="@+id/editTextTeacherPhone"
+            android:layout_below="@+id/spinnerTeacherCity"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:hint="Telefone residencial"/>
+
+            <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="phone"
+            android:ems="10"
+            android:id="@+id/editTextTeacherCellphone"
+            android:layout_below="@+id/editTextTeacherPhone"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:hint="Celular"/>
+
+            <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:id="@+id/editTextTeacherEmail"
+            android:layout_above="@+id/editTextTeacherGraduation"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:hint="E-mail"/>
+
+            <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/editTextTeacherValuePerHour"
+            android:layout_alignBaseline="@+id/textViewTeacherValuePerHour"
+            android:layout_alignBottom="@+id/textViewTeacherValuePerHour"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toRightOf="@+id/textViewTeacherSubjects"
+            android:layout_toEndOf="@+id/textViewTeacherSubjects"
+            android:hint="Valor da hora/aula"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textViewTeacherCity"
-                android:textSize="18dp"
-                android:layout_below="@+id/spinnerTeacherNeighborhood"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:orientation="horizontal"
+                android:layout_marginTop="6dp">
 
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/spinnerTeacherCity"
-                android:layout_marginTop="15dp"
-                android:layout_below="@+id/textViewTeacherCity"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                <TextView
+                    android:text="Cidade: "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textViewTeacherCity"
+                    android:textSize="18dp" />
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:ems="10"
-                android:id="@+id/editTextTeacherGraduation"
-                android:layout_alignBaseline="@+id/textViewTeacherGraduation"
-                android:layout_alignBottom="@+id/textViewTeacherGraduation"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignLeft="@+id/editTextTeacherEmail"
-                android:layout_alignStart="@+id/editTextTeacherEmail"
-                android:hint="E-mail"/>
+                <Spinner
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/spinnerTeacherCity"/>
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="phone"
-                android:ems="10"
-                android:id="@+id/editTextTeacherPhone"
-                android:layout_below="@+id/spinnerTeacherCity"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:hint="Telefone residencial"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="phone"
-                android:ems="10"
-                android:id="@+id/editTextTeacherCellphone"
-                android:layout_below="@+id/editTextTeacherPhone"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:hint="Celular"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="textEmailAddress"
-                android:ems="10"
-                android:id="@+id/editTextTeacherEmail"
-                android:layout_above="@+id/editTextTeacherGraduation"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:hint="E-mail"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="numberDecimal"
-                android:ems="10"
-                android:id="@+id/editTextTeacherValuePerHour"
-                android:layout_alignBaseline="@+id/textViewTeacherValuePerHour"
-                android:layout_alignBottom="@+id/textViewTeacherValuePerHour"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_toRightOf="@+id/textViewTeacherSubjects"
-                android:layout_toEndOf="@+id/textViewTeacherSubjects"
-                android:hint="Valor da hora/aula"/>
+            </LinearLayout>
 
             <TextView
-                android:text="Possui carro? "
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textViewTeacherCar"
-                android:textSize="18dp"
-                android:layout_marginTop="16dp"
-                android:layout_below="@+id/textViewTeacherGraduation"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+            android:text="Possui carro? "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewTeacherCar"
+            android:textSize="18dp"
+            android:layout_marginTop="16dp"
+            android:layout_below="@+id/textViewTeacherGraduation"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
             <RadioButton
-                android:text="Sim"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/radioButtonYes"
-                android:layout_alignBaseline="@+id/textViewTeacherCar"
-                android:layout_alignBottom="@+id/textViewTeacherCar"
-                android:layout_centerHorizontal="true" />
+            android:text="Sim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioButtonYes"
+            android:layout_alignBaseline="@+id/textViewTeacherCar"
+            android:layout_alignBottom="@+id/textViewTeacherCar"
+            android:layout_centerHorizontal="true" />
 
             <RadioButton
-                android:text="Não"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/radioButtonYes"
-                android:layout_toRightOf="@+id/radioButtonYes"
-                android:layout_toEndOf="@+id/radioButtonYes"
-                android:id="@+id/radioButtonNo" />
+            android:text="Não"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/radioButtonYes"
+            android:layout_toRightOf="@+id/radioButtonYes"
+            android:layout_toEndOf="@+id/radioButtonYes"
+            android:id="@+id/radioButtonNo" />
 
             <TextView
-                android:text="Matérias para lecionar: "
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textViewTeacherSubjects"
-                android:textSize="18dp"
-                android:layout_marginTop="10dp"
-                android:layout_below="@+id/editTextTeacherValuePerHour"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+            android:text="Matérias para lecionar: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewTeacherSubjects"
+            android:textSize="18dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/editTextTeacherValuePerHour"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         </LinearLayout>
 

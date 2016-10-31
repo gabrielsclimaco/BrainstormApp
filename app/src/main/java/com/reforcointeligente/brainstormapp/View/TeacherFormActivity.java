@@ -2,13 +2,16 @@ package com.reforcointeligente.brainstormapp.View;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 
 import com.reforcointeligente.brainstormapp.R;
 
 public class TeacherFormActivity extends AppCompatActivity {
     Spinner spinner;
+    boolean hasCar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,5 +28,20 @@ public class TeacherFormActivity extends AppCompatActivity {
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinner.setAdapter(arrayAdapter);
+    }
+
+    public void onRadioButtonClicked(View view) {
+        boolean checked = ((RadioButton) view).isChecked();
+
+        switch(view.getId()) {
+            case R.id.radioButtonYes:
+                if (checked)
+                    hasCar = true;
+                    break;
+            case R.id.radioButtonNo:
+                if (checked)
+                    hasCar = false;
+                    break;
+        }
     }
 }

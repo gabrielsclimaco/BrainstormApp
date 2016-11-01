@@ -220,7 +220,9 @@
                 android:textSize="16dp"
                 android:layout_below="@+id/textViewTotalLessonValue"
                 android:layout_alignLeft="@+id/textViewTotalLessonValue"
-                android:layout_alignStart="@+id/textViewTotalLessonValue" />
+                android:layout_alignStart="@+id/textViewTotalLessonValue"
+                android:layout_alignRight="@+id/buttonCancelLesson"
+                android:layout_alignEnd="@+id/buttonCancelLesson" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -258,6 +260,26 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignLeft="@+id/editTextValuePerHour"
                 android:layout_alignStart="@+id/editTextValuePerHour" />
+
+            <Button
+                android:text="Cancelar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonCancelLesson"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@+id/textViewStudent"
+                android:layout_toEndOf="@+id/textViewStudent" />
+
+            <Button
+                android:text="Confirmar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/buttonConfirmLesson"
+                android:layout_marginLeft="46dp"
+                android:layout_marginStart="46dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@+id/buttonCancelLesson"
+                android:layout_toEndOf="@+id/buttonCancelLesson" />
 
 
         </RelativeLayout>

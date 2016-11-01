@@ -190,10 +190,100 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
+
+            <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+                <CheckBox
+                    android:text="Matemática"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBoxMath" />
+
+                <CheckBox
+                    android:text="Física"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBoxPhysics" />
+
+                <CheckBox
+                    android:text="Química"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBoxChemistry" />
+
+                <CheckBox
+                    android:text="Biologia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBoxBiology" />
+
+                <CheckBox
+                    android:text="Português"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBoxPortuguese"
+                    android:layout_row="1"
+                    android:layout_column="0" />
+
+                <CheckBox
+                    android:text="História"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBoxHistory"
+                    android:layout_row="1"
+                    android:layout_column="1" />
+
+                <CheckBox
+                    android:text="Geografia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBoxGeography"
+                    android:layout_row="1"
+                    android:layout_column="2" />
+
+                <CheckBox
+                    android:text="Outro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBoxOther"
+                    android:layout_row="1"
+                    android:layout_column="3" />
+
+            </GridLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:text="Cancelar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/buttonCancelTeacher"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toLeftOf="@+id/buttonConfirmTeacher"
+                    android:layout_toStartOf="@+id/buttonConfirmTeacher"
+                    android:layout_marginRight="47dp"
+                    android:layout_marginEnd="47dp" />
+
+                <Button
+                    android:text="Confirmar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/buttonConfirmTeacher"
+                    android:layout_marginRight="65dp"
+                    android:layout_marginEnd="65dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_alignTop="@+id/buttonCancelTeacher"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+
+            </RelativeLayout>
+
         </LinearLayout>
 
     </ScrollView>
-
-
 
 </RelativeLayout>

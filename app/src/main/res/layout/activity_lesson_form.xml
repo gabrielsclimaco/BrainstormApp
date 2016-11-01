@@ -16,7 +16,6 @@
         android:layout_height="wrap_content"
         android:textSize="20dp"
         android:id="@+id/textViewTitleNewLesson"
-        android:layout_above="@+id/scrollView2"
         android:textStyle="bold"
         android:layout_centerHorizontal="true" />
 
@@ -28,99 +27,56 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
-
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="650dp">
-
-            <TextView
-                android:text="Data: "
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginStart="15dp"
-                android:id="@+id/textViewDate"
-                android:layout_alignBaseline="@+id/editTextDate"
-                android:layout_alignBottom="@+id/editTextDate"
-                android:textSize="16dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
-
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="date"
                 android:ems="10"
                 android:id="@+id/editTextDate"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_toRightOf="@+id/textViewValuePerHour"
-                android:layout_toEndOf="@+id/textViewValuePerHour"
-                android:hint="dd/mm/aaaa"/>
-
-            <TextView
-                android:text="Horário: "
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textViewTime"
-                android:layout_alignBaseline="@+id/editTextTime"
-                android:layout_alignBottom="@+id/editTextTime"
-                android:layout_alignLeft="@+id/textViewDate"
-                android:textSize="16dp"
-                android:layout_alignStart="@+id/textViewDate" />
+                android:hint="Data:    (dd/mm/aaaa)"/>
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="time"
                 android:ems="10"
                 android:id="@+id/editTextTime"
-                android:layout_below="@+id/editTextDate"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignLeft="@+id/editTextDate"
-                android:layout_alignStart="@+id/editTextDate" />
+                android:hint="Hora:"/>
 
             <TextView
                 android:text="Professor: "
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="3dp"
                 android:id="@+id/textViewTeacher"
-                android:layout_below="@+id/textViewTime"
-                android:layout_alignLeft="@+id/textViewTime"
-                android:textSize="16dp"
-                android:layout_alignStart="@+id/textViewTime" />
+                android:textSize="18dp" />
 
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/spinnerTeacher"
-                android:layout_marginTop="15dp"
-                android:layout_below="@+id/textViewTeacher"
-                android:layout_alignLeft="@+id/textViewTeacher" />
+                android:layout_marginTop="15dp" />
 
             <TextView
                 android:text="Aluno: "
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
+                android:layout_marginLeft="3dp"
                 android:id="@+id/textViewStudent"
-                android:layout_below="@+id/spinnerTeacher"
-                android:layout_alignLeft="@+id/spinnerTeacher"
-                android:textSize="16dp"
-                android:layout_alignStart="@+id/spinnerTeacher" />
+                android:textSize="18dp" />
 
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/spinnerStudent"
-                android:layout_below="@+id/textViewStudent"
-                android:layout_marginTop="8dp"
-                android:layout_alignLeft="@+id/textViewSubject"
-                android:layout_alignStart="@+id/textViewSubject" />
+                android:layout_marginTop="8dp" />
 
             <TextView
                 android:text="Disciplina: "
@@ -128,161 +84,81 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/textViewSubject"
                 android:layout_marginTop="13dp"
-                android:layout_below="@+id/spinnerStudent"
-                android:layout_alignLeft="@+id/textViewStudent"
-                android:textSize="16dp"
-                android:layout_alignStart="@+id/textViewStudent" />
+                android:layout_marginLeft="3dp"
+                android:textSize="18dp" />
 
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@+id/textViewSubject"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
                 android:layout_marginTop="8dp"
-                android:id="@+id/spinnerSubject"
-                android:layout_alignLeft="@+id/textViewSubject"
-                android:layout_alignStart="@+id/textViewSubject" />
-
-            <TextView
-                android:text="Local: "
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textViewPlace"
-                android:layout_below="@+id/spinnerSubject"
-                android:layout_alignLeft="@+id/spinnerSubject"
-                android:layout_alignStart="@+id/spinnerSubject"
-                android:textSize="16dp"
-                android:layout_marginTop="15dp" />
+                android:id="@+id/spinnerSubject" />
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:id="@+id/editTextPlace"
-                android:layout_alignBaseline="@+id/textViewPlace"
-                android:layout_alignBottom="@+id/textViewPlace"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_toRightOf="@+id/textViewSubject"
-                android:layout_toEndOf="@+id/textViewSubject" />
-
-            <TextView
-                android:text="Valor da hora/aula: "
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textViewValuePerHour"
-                android:layout_marginTop="33dp"
-                android:textSize="16dp"
-                android:layout_below="@+id/editTextPlace"
-                android:layout_alignLeft="@+id/textViewPlace"
-                android:layout_alignStart="@+id/textViewPlace" />
-
-            <TextView
-                android:text="Valor total da aula: "
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textViewTotalLessonValue"
-                android:textSize="16dp"
-                android:layout_marginTop="38dp"
-                android:layout_below="@+id/textViewTimeLesson"
-                android:layout_alignRight="@+id/textViewValuePerHour"
-                android:layout_alignEnd="@+id/textViewValuePerHour" />
+                android:hint="Local"/>
 
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:ems="10"
-                android:id="@+id/editTextTotalLessonValue"
-                android:layout_alignBottom="@+id/textViewTotalLessonValue"
-                android:layout_alignLeft="@+id/editTextTimeLesson"
-                android:layout_alignStart="@+id/editTextTimeLesson" />
-
-
-            <TextView
-                android:text="Horas de aula: "
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textViewTimeLesson"
-                android:textSize="16dp"
-                android:layout_marginTop="33dp"
-                android:layout_below="@+id/textViewValuePerHour"
-                android:layout_alignLeft="@+id/textViewTotalLessonValue"
-                android:layout_alignStart="@+id/textViewTotalLessonValue" />
-
-            <TextView
-                android:text="Valor pago ao professor: "
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textViewValuePaid"
-                android:layout_marginTop="32dp"
-                android:textSize="16dp"
-                android:layout_below="@+id/textViewTotalLessonValue"
-                android:layout_alignLeft="@+id/textViewTotalLessonValue"
-                android:layout_alignStart="@+id/textViewTotalLessonValue"
-                android:layout_alignRight="@+id/buttonCancelLesson"
-                android:layout_alignEnd="@+id/buttonCancelLesson" />
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:ems="10"
-                android:id="@+id/editTextValuePaid"
-                android:layout_alignBaseline="@+id/textViewValuePaid"
-                android:layout_alignBottom="@+id/textViewValuePaid"
-                android:layout_toRightOf="@+id/textViewValuePaid"
-                android:layout_toEndOf="@+id/textViewValuePaid" />
-
-            <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
                 android:ems="10"
                 android:id="@+id/editTextValuePerHour"
-                android:layout_alignBaseline="@+id/textViewValuePerHour"
-                android:layout_alignBottom="@+id/textViewValuePerHour"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignLeft="@+id/editTextValuePaid"
-                android:layout_alignStart="@+id/editTextValuePaid" />
+                android:hint="Valor da hora/aula:"/>
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:id="@+id/editTextTotalLessonValue"
+                android:hint="Valor total da aula:"/>
+
+            <EditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="time"
                 android:ems="10"
                 android:id="@+id/editTextTimeLesson"
-                android:layout_alignBaseline="@+id/textViewTimeLesson"
-                android:layout_alignBottom="@+id/textViewTimeLesson"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignLeft="@+id/editTextValuePerHour"
-                android:layout_alignStart="@+id/editTextValuePerHour" />
+                android:hint="Horas de aula:" />
 
-            <Button
-                android:text="Cancelar"
-                android:layout_width="wrap_content"
+            <EditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/buttonCancelLesson"
-                android:layout_alignParentBottom="true"
-                android:layout_toRightOf="@+id/textViewStudent"
-                android:layout_toEndOf="@+id/textViewStudent" />
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:id="@+id/editTextValuePaid"
+                android:hint="Valor pago ao professor:"/>
 
-            <Button
-                android:text="Confirmar"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/buttonConfirmLesson"
-                android:layout_marginLeft="46dp"
-                android:layout_marginStart="46dp"
+                android:orientation="horizontal"
                 android:layout_alignParentBottom="true"
-                android:layout_toRightOf="@+id/buttonCancelLesson"
-                android:layout_toEndOf="@+id/buttonCancelLesson" />
+                android:layout_marginTop="20dp"
+                android:gravity="center">
 
+                <Button
+                    android:text="Cancelar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/buttonCancelLesson"
+                    android:textSize="16dp"
+                    android:layout_marginRight="12dp"/>
 
-        </RelativeLayout>
+                <Button
+                    android:text="Confirmar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/buttonConfirmLesson"
+                    android:textSize="16dp"
+                    android:layout_marginLeft="12dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </ScrollView>
 

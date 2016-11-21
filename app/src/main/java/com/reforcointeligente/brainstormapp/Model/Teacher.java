@@ -10,32 +10,32 @@ public class Teacher extends ParseObject {
     //curso de graduação, matérias para lecionar, possui carro, preço da hora/aula
 
     //Return teacher's name
-    private String getTeacherName() {
+    public String getTeacherName() {
         return getString(getTeacherNameTitle());
     }
 
     //Set teacher's name
-    private void setTeacherName(String teacherName) {
+    public void setTeacherName(String teacherName) {
         put(getTeacherNameTitle(), teacherName);
     }
 
     //Return teacher's address
-    private String getTeacherAddress() {
+    public String getTeacherAddress() {
         return getString(getTeacherAddressTitle());
     }
 
     //Set teacher's address
-    private void setTeacherAddress(String teacherAddress) {
+    public void setTeacherAddress(String teacherAddress) {
         put(getTeacherAddressTitle(), teacherAddress);
     }
 
     //Return city
-    private String getTeacherCity() {
+    public String getTeacherCity() {
         return getString(getTeacherCityTitle());
     }
 
     //Set city
-    private void setTeacherCity(String teacherCity) {
+    public void setTeacherCity(String teacherCity) {
         put(getTeacherCityTitle(), teacherCity);
     }
 
@@ -83,6 +83,14 @@ public class Teacher extends ParseObject {
         put(getTeacherPricePerHourTitle(), pricePerHour);
     }
 
+    public String getTeacherEmail() {
+        return getString(getTeacherEmailTitle());
+    }
+
+    public void setTeacherEmail(String teacherEmail) {
+        put(getTeacherEmailTitle(), teacherEmail);
+    }
+
     // NOT FINISHED
     public String getTeacherSubject() {
         return getString(getTeacherSubjectTitle());
@@ -95,7 +103,6 @@ public class Teacher extends ParseObject {
     public static ParseQuery<Teacher> getQuery() {
         return ParseQuery.getQuery(Teacher.class);
     }
-
 
     private static String getTeacherNameTitle() {
         return "nome_professor";
@@ -120,6 +127,8 @@ public class Teacher extends ParseObject {
     private static String getTeacherCourseTitle() {
         return "curso_professor";
     }
+
+    private static String getTeacherEmailTitle() { return "email_professor"; }
 
     private static String getTeacherSubjectTitle() {
         return "materias_professor";

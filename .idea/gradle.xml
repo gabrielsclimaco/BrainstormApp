@@ -8,8 +8,8 @@
         <option name="gradleHome" value="$APPLICATION_HOME_DIR$/gradle/gradle-2.14.1" />
         <option name="modules">
           <set>
-            <option value="/mnt/5183FCB2697AD21D/Climaco/Documentos/UnB/program/freelancer/android/brainstorm/app-aula" />
-            <option value="/mnt/5183FCB2697AD21D/Climaco/Documentos/UnB/program/freelancer/android/brainstorm/app-aula/app" />
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

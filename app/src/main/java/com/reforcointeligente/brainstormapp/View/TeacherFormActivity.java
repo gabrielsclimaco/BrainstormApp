@@ -32,6 +32,14 @@ public class TeacherFormActivity extends AppCompatActivity {
             }
         });
 
+        confirmTeacherButton = (Button) findViewById(R.id.buttonConfirmTeacher);
+        confirmTeacherButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
     }
 
     private void setUpSpinner() {

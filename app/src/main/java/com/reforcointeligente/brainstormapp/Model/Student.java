@@ -92,7 +92,7 @@ public class Student extends ParseObject {
         return ParseQuery.getQuery(Student.class);
     }
 
-    private static String getStudentNameTitle() {
+    public static String getStudentNameTitle() {
         return "nome_aluno";
     }
 

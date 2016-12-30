@@ -30,6 +30,14 @@ public class StudentFormActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        confirmStudentButton = (Button) findViewById(R.id.buttonConfirmStudent);
+        confirmStudentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     private void setUpSpinner() {

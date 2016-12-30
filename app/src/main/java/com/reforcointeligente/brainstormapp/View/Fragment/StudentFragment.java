@@ -7,11 +7,17 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.reforcointeligente.brainstormapp.Controller.Utils;
+import com.reforcointeligente.brainstormapp.Model.Student;
 import com.reforcointeligente.brainstormapp.R;
 import com.reforcointeligente.brainstormapp.View.StudentFormActivity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class StudentFragment extends Fragment {
 
@@ -37,6 +43,27 @@ public class StudentFragment extends Fragment {
         });
 
         return rootView;
+    }
+
+    private void loadStudentList() {
+        try {
+            List<Student> students = Utils.getListOfStudents();
+
+            ArrayAdapter<Student> adapter = new ArrayAdapter<Student>(getContext(), android.R.layout.simple_list_item_1, students);
+
+            if (adapter != null){
+                listStudent.setAdapter(adapter);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+//        loadStudentList();
     }
 
     public static StudentFragment newInstance() {

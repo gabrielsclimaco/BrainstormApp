@@ -55,7 +55,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginLeft="3dp"
                 android:id="@+id/textViewTeacher"
-                android:textSize="18dp" />
+                android:textSize="16dp" />
 
             <Spinner
                 android:layout_width="match_parent"
@@ -70,7 +70,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginLeft="3dp"
                 android:id="@+id/textViewStudent"
-                android:textSize="18dp" />
+                android:textSize="16dp" />
 
             <Spinner
                 android:layout_width="match_parent"
@@ -85,7 +85,7 @@
                 android:id="@+id/textViewSubject"
                 android:layout_marginTop="13dp"
                 android:layout_marginLeft="3dp"
-                android:textSize="18dp" />
+                android:textSize="16dp" />
 
             <Spinner
                 android:layout_width="match_parent"
@@ -98,7 +98,14 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:id="@+id/editTextPlace"
-                android:hint="Local"/>
+                android:hint="Local:"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:id="@+id/editTextDisplacement"
+                android:hint="Deslocamento:"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -111,18 +118,18 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:ems="10"
-                android:id="@+id/editTextTotalLessonValue"
-                android:hint="Valor total da aula:"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:inputType="time"
                 android:ems="10"
                 android:id="@+id/editTextTimeLesson"
                 android:hint="Horas de aula:" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:id="@+id/editTextTotalLessonValue"
+                android:hint="Valor total da aula:"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -145,7 +152,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/buttonCancelLesson"
-                    android:textSize="16dp"
+                    android:textSize="14dp"
                     android:layout_marginRight="12dp"/>
 
                 <Button
@@ -153,7 +160,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/buttonConfirmLesson"
-                    android:textSize="16dp"
+                    android:textSize="14dp"
                     android:layout_marginLeft="12dp"/>
 
             </LinearLayout>

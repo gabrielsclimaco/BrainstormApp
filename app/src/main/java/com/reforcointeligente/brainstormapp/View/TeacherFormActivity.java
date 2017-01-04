@@ -77,7 +77,6 @@ public class TeacherFormActivity extends AppCompatActivity {
         EditText teacherEmailEditText = (EditText) findViewById(R.id.editTextTeacherEmail);
         EditText teacherPricePerHourEditText = (EditText) findViewById(R.id.editTextTeacherValuePerHour);
 
-
         String teacherName = teacherNameEditText.getText().toString();
         String teacherAddress = teacherAddressEditText.getText().toString();
         String teacherCity = spinner.getSelectedItem().toString();
@@ -86,7 +85,6 @@ public class TeacherFormActivity extends AppCompatActivity {
         String teacherCellphone = teacherCellphoneEditText.getText().toString();
         String teacherEmail = teacherEmailEditText.getText().toString();
         Double teacherPricePerHour = Double.valueOf(teacherPricePerHourEditText.getText().toString());
-
 
         teacher.setTeacherName(teacherName);
         teacher.setTeacherAddress(teacherAddress);

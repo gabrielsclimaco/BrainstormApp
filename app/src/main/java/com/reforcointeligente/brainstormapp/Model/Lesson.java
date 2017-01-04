@@ -1,151 +1,116 @@
 package com.reforcointeligente.brainstormapp.Model;
 
-import java.sql.Time;
-import java.util.Date;
-import com.parse.ParseClassName;
-import com.parse.ParseObject;
-import com.parse.ParseQuery;
+import java.sql.Struct;
 
-@ParseClassName("Lesson")
-public class Lesson extends ParseObject {
-    //data, horário, professor, aluno, disciplina, local, valor da hora/aula, horas de aula,
-    //valor pago ao professor (valor da hora/aula * horas de aula),
-    //lucro da aula (valor total da aula - valor pago ao professor)
+public class Lesson {
+    private String lessonDate;
+    private String lessonTime;
+    private Teacher lessonTeacher;
+    private Student lessonStudent;
+    private String lessonSubject;
+    private String lessonPlace;
+    private Double lessonPricePerHour;
+    private Double lessonDuration;
+    private Double lessonTotalValue;
+    private Double lessonProfit;
+
+    public Lesson(String lessonDate, String lessonTime, Teacher lessonTeacher, Student lessonStudent,
+                  String lessonSubject, String lessonPlace, Double lessonPricePerHour,
+                  Double lessonDuration, Double lessonTotalValue, Double lessonProfit) {
+        this.lessonDate = lessonDate;
+        this.lessonTime = lessonTime;
+        this.lessonTeacher = lessonTeacher;
+        this.lessonStudent = lessonStudent;
+        this.lessonSubject = lessonSubject;
+        this.lessonPlace = lessonPlace;
+        this.lessonPricePerHour = lessonPricePerHour;
+        this.lessonDuration = lessonDuration;
+        this.lessonTotalValue = lessonTotalValue;
+        this.lessonProfit = lessonProfit;
+    }
 
     public String getLessonDate() {
-        return getString(getLessonDateTitle());
+        return lessonDate;
     }
 
     public void setLessonDate(String lessonDate) {
-        put(getLessonDateTitle(), lessonDate);
+        this.lessonDate = lessonDate;
     }
 
     public String getLessonTime() {
-        return getString(getLessonTimeTitle());
+        return lessonTime;
     }
 
     public void setLessonTime(String lessonTime) {
-        put(getLessonTimeTitle(), lessonTime);
+        this.lessonTime = lessonTime;
     }
 
-    public String getLessonTeacher() {
-        return getString(getLessonTeacherTitle());
+    public Teacher getLessonTeacher() {
+        return lessonTeacher;
     }
 
-    public void setLessonTeacher(String teacherName) {
-        put(getLessonTeacherTitle(), teacherName);
+    public void setLessonTeacher(Teacher lessonTeacher) {
+        this.lessonTeacher = lessonTeacher;
     }
 
-    public String getLessonStudent() {
-        return getString(getLessonStudentTitle());
+    public Student getLessonStudent() {
+        return lessonStudent;
     }
 
-    public void setLessonStudent(String studentName) {
-        put(getLessonStudentTitle(), studentName);
+    public void setLessonStudent(Student lessonStudent) {
+        this.lessonStudent = lessonStudent;
     }
 
     public String getLessonSubject() {
-        return getString(getLessonSubjectTitle());
+        return lessonSubject;
     }
 
-    public void setLessonSubject(String subject){
-        put(getLessonSubjectTitle(), subject);
+    public void setLessonSubject(String lessonSubject) {
+        this.lessonSubject = lessonSubject;
     }
 
     public String getLessonPlace() {
-        return getString(getLessonPlaceTitle());
+        return lessonPlace;
     }
 
-    public void setLessonPlace(String place) {
-        put(getLessonPlaceTitle(), place);
+    public void setLessonPlace(String lessonPlace) {
+        this.lessonPlace = lessonPlace;
     }
 
     public Double getLessonPricePerHour() {
-        return getDouble(getLessonPricePerHourTitle());
+        return lessonPricePerHour;
     }
 
-    public void setLessonPricePerHour(String pricePerHour) {
-        put(getLessonPricePerHourTitle(), pricePerHour);
+    public void setLessonPricePerHour(Double lessonPricePerHour) {
+        this.lessonPricePerHour = lessonPricePerHour;
     }
 
     public Double getLessonDuration() {
-        return getDouble(getLessonDurationTitle());
+        return lessonDuration;
     }
 
-    public void setLessonDuration(Double Duration){
-        put(getLessonDurationTitle(), Duration);
+    public void setLessonDuration(Double lessonDuration) {
+        this.lessonDuration = lessonDuration;
     }
 
     public Double getLessonTotalValue() {
-        return getDouble(getLessonTotalValueTitle());
+        setLessonTotalValue();
+        return lessonTotalValue;
     }
 
-    public void getLessonTotalValues(Double totalValue){
-        put(getLessonTotalValueTitle(), totalValue);
-    }
-
-    public Double getLessonTeacherValue() {
-        return getDouble(getLessonTeacherValueTitle());
-    }
-
-    public void setLessonTeacherValue(Double teacherValue) {
-        put(getLessonTeacherValueTitle(), teacherValue);
+    private void setLessonTotalValue() {
+        lessonTotalValue = lessonPricePerHour * lessonDuration;
     }
 
     public Double getLessonProfit() {
-        return getDouble(getLessonProfitTitle());
+        setLessonProfit();
+
+        return lessonProfit;
     }
 
-    public void setLessonProfit(Double profit) {
-        put(getLessonProfitTitle(), profit);
-    }
+    private void setLessonProfit() {
+        setLessonTotalValue();
 
-    public static ParseQuery<Lesson> getQuery() {
-        return ParseQuery.getQuery(Lesson.class);
+        lessonProfit = lessonTotalValue - lessonTeacher.getPricePerHour();
     }
-
-    private static String getLessonDateTitle () {
-        return "data_aula";
-    }
-
-    private static String getLessonTimeTitle () {
-        return "horario_aula";
-    }
-
-    private static String getLessonTeacherTitle () {
-        return "professor_aula";
-    }
-
-    private static String getLessonStudentTitle () {
-        return "aluno_aula";
-    }
-
-    private static String getLessonSubjectTitle () {
-        return "disciplina_aula";
-    }
-
-    private static String getLessonPlaceTitle () {
-        return "local_aula";
-    }
-
-    private static String getLessonPricePerHourTitle () {
-        return "valor_hora_aula";
-    }
-
-    private static String getLessonDurationTitle () {
-        return "duracao_aula";
-    }
-
-    private static String getLessonTotalValueTitle () {
-        return "valor_total_aula";
-    }
-
-    private static String getLessonTeacherValueTitle () {
-        return "valor_professor_aula";
-    }
-
-    private static String getLessonProfitTitle () {
-        return "lucro_aula";
-    }
-
 }

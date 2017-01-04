@@ -60,7 +60,8 @@
                 android:id="@+id/editTextStudentAge"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:hint="Idade"/>
+                android:hint="Idade"
+                android:inputType="number"/>
 
             <EditText
                 android:layout_width="match_parent"

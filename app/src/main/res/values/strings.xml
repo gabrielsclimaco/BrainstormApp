@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BrainstormApp</string>
+    <string name="app_name">Brainstorm</string>
     <array name="list_df_cities">
         <item>Plano Piloto</item>
         <item>Sudoeste/Octogonal</item>

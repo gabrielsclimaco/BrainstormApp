@@ -1,145 +1,114 @@
 package com.reforcointeligente.brainstormapp.Model;
 
-import com.parse.ParseClassName;
-import com.parse.ParseObject;
-import com.parse.ParseQuery;
+import java.util.List;
 
-@ParseClassName("Teacher")
-public class Teacher extends ParseObject {
-    //nome, endereço (end, bairro, cidade), telefone (residencial e celular), email,
-    //curso de graduação, matérias para lecionar, possui carro, preço da hora/aula
+public class Teacher {
 
-    //Return teacher's name
+    private String teacherName;
+    private String teacherAddress;
+    private String teacherCity;
+    private String teacherPhone;
+    private String teacherCellphone;
+    private String teacherCourse;
+    private Boolean teacherCar;
+    private Double pricePerHour;
+    private String teacherEmail;
+    private List<String> teacherStudents;
+
+    public Teacher(String teacherName, String teacherAddress, String teacherCity,
+                   String teacherPhone, String teacherCellphone, String teacherCourse,
+                   Boolean teacherCar, Double pricePerHour, String teacherEmail,
+                   List<String> teacherStudents) {
+        this.teacherName = teacherName;
+        this.teacherAddress = teacherAddress;
+        this.teacherCity = teacherCity;
+        this.teacherPhone = teacherPhone;
+        this.teacherCellphone = teacherCellphone;
+        this.teacherCourse = teacherCourse;
+        this.teacherCar = teacherCar;
+        this.pricePerHour = pricePerHour;
+        this.teacherEmail = teacherEmail;
+        this.teacherStudents = teacherStudents;
+    }
+
     public String getTeacherName() {
-        return getString(getTeacherNameTitle());
+        return teacherName;
     }
 
-    //Set teacher's name
     public void setTeacherName(String teacherName) {
-        put(getTeacherNameTitle(), teacherName);
+        this.teacherName = teacherName;
     }
 
-    //Return teacher's address
     public String getTeacherAddress() {
-        return getString(getTeacherAddressTitle());
+        return teacherAddress;
     }
 
-    //Set teacher's address
     public void setTeacherAddress(String teacherAddress) {
-        put(getTeacherAddressTitle(), teacherAddress);
+        this.teacherAddress = teacherAddress;
     }
 
-    //Return city
     public String getTeacherCity() {
-        return getString(getTeacherCityTitle());
+        return teacherCity;
     }
 
-    //Set city
     public void setTeacherCity(String teacherCity) {
-        put(getTeacherCityTitle(), teacherCity);
+        this.teacherCity = teacherCity;
     }
 
-    //Return teacher's residencial phone
-    public String getTeacherPhone(){
-        return getString(getTeacherPhoneTitle());
+    public String getTeacherPhone() {
+        return teacherPhone;
     }
 
-    //Set teacher's residencial phone
-    public void setTeacherPhone(String teacherPhone){
-        put(getTeacherPhoneTitle(), teacherPhone);
+    public void setTeacherPhone(String teacherPhone) {
+        this.teacherPhone = teacherPhone;
     }
 
-    //Return teacher's cellphone
-    public String getTeacherCellphone(){
-        return getString(getTeacherCellphoneTitle());
+    public String getTeacherCellphone() {
+        return teacherCellphone;
     }
 
-    //Set teacher's cellphone
-    public void setTeacherCellphone(String teacherCellphone){
-        put(getTeacherCellphoneTitle(), teacherCellphone);
+    public void setTeacherCellphone(String teacherCellphone) {
+        this.teacherCellphone = teacherCellphone;
     }
 
     public String getTeacherCourse() {
-        return getString(getTeacherCourseTitle());
+        return teacherCourse;
     }
 
-    public void setTeacherCourse(String course) {
-        put(getTeacherCourseTitle(), course);
+    public void setTeacherCourse(String teacherCourse) {
+        this.teacherCourse = teacherCourse;
     }
 
     public Boolean getTeacherCar() {
-        return getBoolean(getTeacherCarTitle());
+        return teacherCar;
     }
 
-    public void setTeacherCar(Boolean car){
-        put(getTeacherCarTitle(), car);
+    public void setTeacherCar(Boolean teacherCar) {
+        this.teacherCar = teacherCar;
     }
 
-    public Double getTeacherPricePerHour() {
-        return getDouble(getTeacherPricePerHourTitle());
+    public Double getPricePerHour() {
+        return pricePerHour;
     }
 
-    public void setTeacherPricePerHour(Double pricePerHour) {
-        put(getTeacherPricePerHourTitle(), pricePerHour);
+    public void setPricePerHour(Double pricePerHour) {
+        this.pricePerHour = pricePerHour;
     }
 
     public String getTeacherEmail() {
-        return getString(getTeacherEmailTitle());
+        return teacherEmail;
     }
 
     public void setTeacherEmail(String teacherEmail) {
-        put(getTeacherEmailTitle(), teacherEmail);
+        this.teacherEmail = teacherEmail;
     }
 
-    // NOT FINISHED
-    public String getTeacherSubject() {
-        return getString(getTeacherSubjectTitle());
+    public List<String> getTeacherStudents() {
+        return teacherStudents;
     }
 
-    public void setTeacherSubject(String subject) {
-        put(getTeacherSubjectTitle(), subject);
-    }
-
-    public static ParseQuery<Teacher> getQuery() {
-        return ParseQuery.getQuery(Teacher.class);
-    }
-
-    private static String getTeacherNameTitle() {
-        return "nome_professor";
-    }
-
-    private static String getTeacherAddressTitle() {
-        return "endereco_professor";
-    }
-
-    private static String getTeacherCityTitle() {
-        return "cidade_professor";
-    }
-
-    private static String getTeacherPhoneTitle() {
-        return "telefone_professor";
-    }
-
-    private static String getTeacherCellphoneTitle(){
-        return "celular_professor";
-    }
-
-    private static String getTeacherCourseTitle() {
-        return "curso_professor";
-    }
-
-    private static String getTeacherEmailTitle() { return "email_professor"; }
-
-    private static String getTeacherSubjectTitle() {
-        return "materias_professor";
-    }
-
-    private static String getTeacherCarTitle() {
-        return "possui_carro_professor";
-    }
-
-    private static String getTeacherPricePerHourTitle() {
-        return "preco_hora_professor";
+    public void setTeacherStudents(List<String> teacherStudents) {
+        this.teacherStudents = teacherStudents;
     }
 }
 

@@ -33,4 +33,14 @@
         <item>Fercal</item>
         <item>Brazlândia</item>
     </array>
+    <array name="list_of_subjects">
+        <item>Matemática</item>
+        <item>Física</item>
+        <item>Química</item>
+        <item>Biologia</item>
+        <item>Português</item>
+        <item>História</item>
+        <item>Geografia</item>
+        <item>Outro</item>
+    </array>
 </resources>

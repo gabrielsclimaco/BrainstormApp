@@ -120,7 +120,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="time"
                 android:ems="10"
-                android:id="@+id/editTextTimeLesson"
+                android:id="@+id/editTextLessonDuration"
                 android:hint="Horas de aula:" />
 
             <EditText

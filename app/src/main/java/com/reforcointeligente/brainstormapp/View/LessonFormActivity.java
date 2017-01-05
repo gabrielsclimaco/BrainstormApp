@@ -49,32 +49,32 @@ public class LessonFormActivity extends AppCompatActivity {
     }
 
     public void onLessonCreated() {
-        Lesson lesson = new Lesson();
-
-        EditText dateEditText = (EditText) findViewById(R.id.editTextDate);
-        EditText timeEditText = (EditText) findViewById(R.id.editTextTime);
-        EditText placeEditText = (EditText) findViewById(R.id.editTextPlace);
-        EditText displacementEditText = (EditText) findViewById(R.id.editTextDisplacement);
-        EditText valuePerHourEditText = (EditText) findViewById(R.id.editTextValuePerHour);
-        EditText durationLessonEditText = (EditText) findViewById(R.id.editTextLessonDuration);
-        EditText totalLessonValueEditText = (EditText) findViewById(R.id.editTextTotalLessonValue);
-        EditText valuePaidEditText = (EditText) findViewById(R.id.editTextValuePaid);
-
-        String subject = spinner.getSelectedItem().toString();
-        String date = dateEditText.getText().toString();
-        String time = timeEditText.getText().toString();
-        String place = placeEditText.getText().toString();
-        String displacement = displacementEditText.getText().toString();
-        Double valuePerHour = Double.valueOf(valuePerHourEditText.getText().toString());
-        Double duration = Double.valueOf(durationLessonEditText.getText().toString());
-        Double totalLessonValue = Double.valueOf(totalLessonValueEditText.getText().toString());
-        Double valuePaid = Double.valueOf(valuePaidEditText.getText().toString());
-
-        lesson.setLessonDate(date);
-        lesson.setLessonTime(time);
-        lesson.setLessonSubject(subject);
-        lesson.setLessonPlace(place);
-        lesson.setLessonDuration(duration);
+//        Lesson lesson = new Lesson();
+//
+//        EditText dateEditText = (EditText) findViewById(R.id.editTextDate);
+//        EditText timeEditText = (EditText) findViewById(R.id.editTextTime);
+//        EditText placeEditText = (EditText) findViewById(R.id.editTextPlace);
+//        EditText displacementEditText = (EditText) findViewById(R.id.editTextDisplacement);
+//        EditText valuePerHourEditText = (EditText) findViewById(R.id.editTextValuePerHour);
+//        EditText durationLessonEditText = (EditText) findViewById(R.id.editTextLessonDuration);
+//        EditText totalLessonValueEditText = (EditText) findViewById(R.id.editTextTotalLessonValue);
+//        EditText valuePaidEditText = (EditText) findViewById(R.id.editTextValuePaid);
+//
+//        String subject = spinner.getSelectedItem().toString();
+//        String date = dateEditText.getText().toString();
+//        String time = timeEditText.getText().toString();
+//        String place = placeEditText.getText().toString();
+//        String displacement = displacementEditText.getText().toString();
+//        Double valuePerHour = Double.valueOf(valuePerHourEditText.getText().toString());
+//        Double duration = Double.valueOf(durationLessonEditText.getText().toString());
+//        Double totalLessonValue = Double.valueOf(totalLessonValueEditText.getText().toString());
+//        Double valuePaid = Double.valueOf(valuePaidEditText.getText().toString());
+//
+//        lesson.setLessonDate(date);
+//        lesson.setLessonTime(time);
+//        lesson.setLessonSubject(subject);
+//        lesson.setLessonPlace(place);
+//        lesson.setLessonDuration(duration);
 
         // falta displacement, value per hour, total lesson value e value paid
 

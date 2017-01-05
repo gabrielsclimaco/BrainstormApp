@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "459973626470",
+    "firebase_url": "https://brainstorm-c89d6.firebaseio.com",
+    "project_id": "brainstorm-c89d6",
+    "storage_bucket": "brainstorm-c89d6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:459973626470:android:116c2c6ed312040a",
+        "android_client_info": {
+          "package_name": "com.reforcointeligente.brainstormapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "459973626470-9ngdcr9f4psda8dn7vhkpl66j1keipdr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.reforcointeligente.brainstormapp",
+            "certificate_hash": "A7DE7B7AAC2935797BA780B36B8F660A9CD436C2"
+          }
+        },
+        {
+          "client_id": "459973626470-f118ju8apj9p4tqffclov2sj0iku7cfo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0gVN-ksHApEzksuvGwNe80UD-wQkR9_4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "459973626470-f118ju8apj9p4tqffclov2sj0iku7cfo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

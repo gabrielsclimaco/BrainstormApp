@@ -67,36 +67,6 @@ public class TeacherFormActivity extends AppCompatActivity {
     }
 
     public void onTeacherCreated() {
-        Teacher teacher = new Teacher();
-
-        EditText teacherNameEditText = (EditText) findViewById(R.id.editTextTeacherName);
-        EditText teacherAddressEditText = (EditText) findViewById(R.id.editTextTeacherAddress);
-        EditText teacherGraduationEditText = (EditText) findViewById(R.id.editTextTeacherGraduation);
-        EditText teacherPhoneEditText = (EditText) findViewById(R.id.editTextTeacherPhone);
-        EditText teacherCellphoneEditText = (EditText) findViewById(R.id.editTextTeacherCellphone);;
-        EditText teacherEmailEditText = (EditText) findViewById(R.id.editTextTeacherEmail);
-        EditText teacherPricePerHourEditText = (EditText) findViewById(R.id.editTextTeacherValuePerHour);
-
-        String teacherName = teacherNameEditText.getText().toString();
-        String teacherAddress = teacherAddressEditText.getText().toString();
-        String teacherCity = spinner.getSelectedItem().toString();
-        String teacherGraduation = teacherGraduationEditText.getText().toString();
-        String teacherPhone = teacherPhoneEditText.getText().toString();
-        String teacherCellphone = teacherCellphoneEditText.getText().toString();
-        String teacherEmail = teacherEmailEditText.getText().toString();
-        Double teacherPricePerHour = Double.valueOf(teacherPricePerHourEditText.getText().toString());
-
-        teacher.setTeacherName(teacherName);
-        teacher.setTeacherAddress(teacherAddress);
-        teacher.setTeacherCity(teacherCity);
-        teacher.setTeacherCourse(teacherGraduation);
-        teacher.setTeacherPhone(teacherPhone);
-        teacher.setTeacherCellphone(teacherCellphone);
-        teacher.setTeacherEmail(teacherEmail);
-        teacher.setTeacherPricePerHour(teacherPricePerHour);
-        teacher.setTeacherCar(hasCar);
-
-        //falta materias
 
     }
 }

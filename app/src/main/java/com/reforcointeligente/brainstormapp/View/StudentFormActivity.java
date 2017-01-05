@@ -9,21 +9,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.google.firebase.database.FirebaseDatabase;
+import com.reforcointeligente.brainstormapp.Controller.FirebaseUtils;
 import com.reforcointeligente.brainstormapp.Model.Student;
 import com.reforcointeligente.brainstormapp.R;
 
-public class StudentFormActivity extends AppCompatActivity {
-    Spinner spinner;
-    Button confirmStudentButton;
-    Button cancelStudentButton;
+import com.google.firebase.database.DatabaseReference;
 
+public class StudentFormActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_form);
+
         setUpSpinner();
 
-        cancelStudentButton = (Button) findViewById(R.id.buttonCancelStudent);
+        Button cancelStudentButton = (Button) findViewById(R.id.buttonCancelStudent);
         cancelStudentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -31,17 +32,17 @@ public class StudentFormActivity extends AppCompatActivity {
             }
         });
 
-        confirmStudentButton = (Button) findViewById(R.id.buttonConfirmStudent);
+        Button confirmStudentButton = (Button) findViewById(R.id.buttonConfirmStudent);
         confirmStudentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                onStudentCreated();
             }
         });
     }
 
     private void setUpSpinner() {
-        spinner = (Spinner) findViewById(R.id.spinnerStudentCity);
+        Spinner spinner = (Spinner) findViewById(R.id.spinnerStudentCity);
         ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(this,
                 R.array.list_df_cities, android.R.layout.simple_spinner_dropdown_item);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -49,38 +50,10 @@ public class StudentFormActivity extends AppCompatActivity {
         spinner.setAdapter(arrayAdapter);
     }
 
-    public void onTeacherCreated() {
-        Student student = new Student();
+    public void onStudentCreated() {
+        View view = findViewById(R.id.activity_student_form);
+        FirebaseUtils.saveStudent(view);
 
-        EditText studentNameEditText = (EditText) findViewById(R.id.editTextStudentName);
-        EditText studentAgeEditText = (EditText) findViewById(R.id.editTextStudentAge);
-        EditText studentSchoolEditText = (EditText) findViewById(R.id.editTextStudentSchool);
-        EditText studentAddressEditText = (EditText) findViewById(R.id.editTextStudentAddress);
-        EditText studentParentNameEditText = (EditText) findViewById(R.id.editTextStudentParentName);
-        EditText studentParentCellphoneEditText = (EditText) findViewById(R.id.editTextStudentParentCellphone);
-        EditText studentParentPhoneEditText = (EditText) findViewById(R.id.editTextStudentParentPhone);
-        EditText studentParentEmailEditText = (EditText) findViewById(R.id.editTextStudentParentEmail);
-
-        String studentName = studentNameEditText.getText().toString();
-        String studentAge = studentAgeEditText.getText().toString();
-        String studentSchool = studentSchoolEditText.getText().toString();
-        String studentAddress = studentAddressEditText.getText().toString();
-        String studentCity = spinner.getSelectedItem().toString();
-        String studentParentName = studentParentNameEditText.getText().toString();
-        String studentParenteCellphone = studentParentCellphoneEditText.getText().toString();
-        String studentParentPhone = studentParentPhoneEditText.getText().toString();
-        String studentParentEmail = studentParentEmailEditText.getText().toString();
-
-        student.setStudentName(studentName);
-        student.setStudentAge(studentAge);
-        student.setStudentSchool(studentSchool);
-        student.setStudentAddress(studentAddress);
-        student.setStudentCity(studentCity);
-        student.setStudentParentName(studentParentName);
-        student.setStudentParentCellphone(studentParenteCellphone);
-        student.setStudentParentPhone(studentParentPhone);
-        student.setStudentParentEmail(studentParentEmail);
-
+        finish();
     }
-
 }

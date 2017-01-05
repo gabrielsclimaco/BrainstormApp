@@ -1,134 +1,114 @@
 package com.reforcointeligente.brainstormapp.Model;
 
+public class Student {
 
-import com.parse.ParseClassName;
-import com.parse.ParseObject;
-import com.parse.ParseQuery;
+    private String studentName;
+    private Integer studentAge;
+    private String studentAddress;
+    private String studentCity;
+    private String studentSchoolYear;
+    private String studentSchool;
+    private String studentParentName;
+    private String studentParentPhone;
+    private String studentParentCellphone;
+    private String studentParentEmail;
 
-@ParseClassName("Student")
-public class Student extends ParseObject {
+    public Student() {
+    }
+
+    public Student(String studentName, Integer studentAge, String studentAddress,
+                   String studentCity, String studentSchoolYear, String studentSchool,
+                   String studentParentName, String studentParentPhone,
+                   String studentParentCellphone, String studentParentEmail) {
+        this.studentName = studentName;
+        this.studentAge = studentAge;
+        this.studentAddress = studentAddress;
+        this.studentCity = studentCity;
+        this.studentSchoolYear = studentSchoolYear;
+        this.studentSchool = studentSchool;
+        this.studentParentName = studentParentName;
+        this.studentParentPhone = studentParentPhone;
+        this.studentParentCellphone = studentParentCellphone;
+        this.studentParentEmail = studentParentEmail;
+    }
 
     public String getStudentName() {
-        return getString(getStudentNameTitle());
+        return studentName;
     }
 
     public void setStudentName(String studentName) {
-        put(getStudentNameTitle(), studentName);
+        this.studentName = studentName;
     }
 
-    public String getStudentAge() {
-        return getString(getStudentAgeTitle());
+    public Integer getStudentAge() {
+        return studentAge;
     }
 
-    public void setStudentAge(String studentAge) {
-        put(getStudentAgeTitle(), studentAge);
+    public void setStudentAge(Integer studentAge) {
+        this.studentAge = studentAge;
     }
 
     public String getStudentAddress() {
-        return getString(getStudentAddressTitle());
+        return studentAddress;
     }
 
     public void setStudentAddress(String studentAddress) {
-        put(getStudentAddressTitle(), studentAddress);
+        this.studentAddress = studentAddress;
     }
 
     public String getStudentCity() {
-        return getString(getStudentCityTitle());
+        return studentCity;
     }
 
     public void setStudentCity(String studentCity) {
-        put(getStudentCityTitle(), studentCity);
+        this.studentCity = studentCity;
     }
 
     public String getStudentSchoolYear() {
-        return getString(getStudentSchoolYearTitle());
+        return studentSchoolYear;
     }
 
     public void setStudentSchoolYear(String studentSchoolYear) {
-        put(getStudentSchoolYearTitle(), studentSchoolYear);
+        this.studentSchoolYear = studentSchoolYear;
     }
 
     public String getStudentSchool() {
-        return getString(getStudentSchoolTitle());
+        return studentSchool;
     }
 
     public void setStudentSchool(String studentSchool) {
-        put(getStudentSchoolTitle(), studentSchool);
+        this.studentSchool = studentSchool;
     }
 
     public String getStudentParentName() {
-        return getString(getStudentParentNameTitle());
+        return studentParentName;
     }
 
     public void setStudentParentName(String studentParentName) {
-        put(getStudentParentNameTitle(), studentParentName);
+        this.studentParentName = studentParentName;
     }
 
     public String getStudentParentPhone() {
-        return getString(getStudentParentPhoneTitle());
+        return studentParentPhone;
     }
 
     public void setStudentParentPhone(String studentParentPhone) {
-        put(getStudentParentPhoneTitle(), studentParentPhone);
+        this.studentParentPhone = studentParentPhone;
     }
 
     public String getStudentParentCellphone() {
-        return getString(getStudentParentCellphoneTitle());
+        return studentParentCellphone;
     }
 
-    public void setStudentParentCellphone (String studentParentCellphone) {
-        put(getStudentParentCellphoneTitle(), studentParentCellphone);
+    public void setStudentParentCellphone(String studentParentCellphone) {
+        this.studentParentCellphone = studentParentCellphone;
     }
 
     public String getStudentParentEmail() {
-        return getString(getStudentParentEmailTitle());
+        return studentParentEmail;
     }
 
     public void setStudentParentEmail(String studentParentEmail) {
-        put(getStudentParentEmailTitle(), studentParentEmail);
-    }
-
-    public static ParseQuery<Student> getQuery() {
-        return ParseQuery.getQuery(Student.class);
-    }
-
-    public static String getStudentNameTitle() {
-        return "nome_aluno";
-    }
-
-    private static String getStudentAgeTitle() {
-        return "idade_aluno";
-    }
-
-    private static String getStudentAddressTitle() {
-        return "endereco_aluno";
-    }
-
-    private static String getStudentCityTitle() {
-        return "cidade_aluno";
-    }
-
-    private static String getStudentSchoolYearTitle() {
-        return "serie_aluno";
-    }
-
-    private static String getStudentSchoolTitle() {
-        return "colegio_aluno";
-    }
-
-    private static String getStudentParentNameTitle() {
-        return "nome_pai_aluno";
-    }
-
-    private static String getStudentParentPhoneTitle() {
-        return "telefone_pai_aluno";
-    }
-
-    private static String getStudentParentCellphoneTitle() {
-        return "celular_pai_aluno";
-    }
-
-    private static String getStudentParentEmailTitle() {
-        return "email_pai_aluno";
+        this.studentParentEmail = studentParentEmail;
     }
 }

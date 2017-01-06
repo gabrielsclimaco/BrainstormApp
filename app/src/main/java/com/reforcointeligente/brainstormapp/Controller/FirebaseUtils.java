@@ -31,8 +31,8 @@ public class FirebaseUtils {
             age = Integer.valueOf(((EditText) view.findViewById(R.id.editTextStudentAge)).getText().toString());
         }
 
-        Student studentToSave = new Student(name, age, school, address, city, name, nameParent,
-                cellphoneParent, phoneParent, emailParent);
+        Student studentToSave = new Student(name, age, address, city, "", school, nameParent,
+                phoneParent, cellphoneParent, emailParent);
 
         databaseReference.child("Students").push().setValue(studentToSave);
     }

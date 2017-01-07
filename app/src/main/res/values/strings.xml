@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Brainstorm</string>
     <array name="list_df_cities">
+        <item></item>
         <item>Plano Piloto</item>
         <item>Sudoeste/Octogonal</item>
         <item>Lago Norte</item>

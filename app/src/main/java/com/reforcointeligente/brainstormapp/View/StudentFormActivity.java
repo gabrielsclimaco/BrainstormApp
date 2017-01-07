@@ -51,9 +51,24 @@ public class StudentFormActivity extends AppCompatActivity {
     }
 
     public void onStudentCreated() {
+        validateStudentForm();
+
         View view = findViewById(R.id.activity_student_form);
         FirebaseUtils.saveStudent(view);
 
         finish();
+    }
+
+    private void validateStudentForm() {
+        validateName();
+    }
+
+    private void validateName() {
+        EditText nameField = ((EditText) findViewById(R.id.editTextStudentName));
+        String name = nameField.getText().toString();
+
+        if (name == null) {
+            nameField.setError("Você não pode adicionar um aluno sem nome");
+        }
     }
 }

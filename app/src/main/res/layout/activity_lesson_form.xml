@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="date"
                 android:ems="10"
-                android:id="@+id/editTextDate"
+                android:id="@+id/editTextLessonDate"
                 android:hint="Data:    (dd/mm/aaaa)"/>
 
             <EditText
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="time"
                 android:ems="10"
-                android:id="@+id/editTextTime"
+                android:id="@+id/editTextLessonTime"
                 android:hint="Hora:"/>
 
             <TextView
@@ -54,13 +54,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:layout_marginLeft="3dp"
-                android:id="@+id/textViewTeacher"
+                android:id="@+id/textViewLessonTeacher"
                 android:textSize="16dp" />
 
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/spinnerTeacher"
+                android:id="@+id/spinnerLessonTeacher"
                 android:layout_marginTop="15dp" />
 
             <TextView
@@ -69,20 +69,20 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:layout_marginLeft="3dp"
-                android:id="@+id/textViewStudent"
+                android:id="@+id/textViewLessonStudent"
                 android:textSize="16dp" />
 
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/spinnerStudent"
+                android:id="@+id/spinnerLessonStudent"
                 android:layout_marginTop="8dp" />
 
             <TextView
                 android:text="Disciplina: "
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textViewSubject"
+                android:id="@+id/textViewLessonSubject"
                 android:layout_marginTop="13dp"
                 android:layout_marginLeft="3dp"
                 android:textSize="16dp" />
@@ -91,20 +91,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="8dp"
-                android:id="@+id/spinnerSubject" />
+                android:id="@+id/spinnerLessonSubject" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:id="@+id/editTextPlace"
+                android:id="@+id/editTextLessonPlace"
                 android:hint="Local:"/>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:id="@+id/editTextDisplacement"
+                android:id="@+id/editTextLessonDisplacement"
                 android:hint="Deslocamento:"/>
 
             <EditText
@@ -112,7 +112,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
                 android:ems="10"
-                android:id="@+id/editTextValuePerHour"
+                android:id="@+id/editTextLessonValuePerHour"
                 android:hint="Valor da hora/aula:"/>
 
             <EditText
@@ -122,22 +122,6 @@
                 android:ems="10"
                 android:id="@+id/editTextLessonDuration"
                 android:hint="Horas de aula:" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:ems="10"
-                android:id="@+id/editTextTotalLessonValue"
-                android:hint="Valor total da aula:"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:ems="10"
-                android:id="@+id/editTextValuePaid"
-                android:hint="Valor pago ao professor:"/>
 
             <LinearLayout
                 android:layout_width="match_parent"

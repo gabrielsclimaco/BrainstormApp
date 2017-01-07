@@ -44,6 +44,7 @@ public class FirebaseUtils {
             @Override
             protected void populateView(View view, Student student, int position) {
                 ((TextView) view.findViewById(android.R.id.text1)).setText(student.getStudentName());
+                ((TextView) view.findViewById(android.R.id.text2)).setText(student.getStudentParentName());
             }
         };
 

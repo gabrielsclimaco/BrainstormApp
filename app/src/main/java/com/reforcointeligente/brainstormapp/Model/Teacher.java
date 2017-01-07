@@ -13,12 +13,12 @@ public class Teacher {
     private Boolean teacherCar;
     private Double pricePerHour;
     private String teacherEmail;
-    private List<String> teacherStudents;
+    private List<String> teacherSubjects;
 
     public Teacher(String teacherName, String teacherAddress, String teacherCity,
                    String teacherPhone, String teacherCellphone, String teacherCourse,
                    Boolean teacherCar, Double pricePerHour, String teacherEmail,
-                   List<String> teacherStudents) {
+                   List<String> teacherSubjects) {
         this.teacherName = teacherName;
         this.teacherAddress = teacherAddress;
         this.teacherCity = teacherCity;
@@ -28,7 +28,11 @@ public class Teacher {
         this.teacherCar = teacherCar;
         this.pricePerHour = pricePerHour;
         this.teacherEmail = teacherEmail;
-        this.teacherStudents = teacherStudents;
+        this.teacherSubjects = teacherSubjects;
+    }
+
+    public Teacher() {
+
     }
 
     public String getTeacherName() {
@@ -103,12 +107,12 @@ public class Teacher {
         this.teacherEmail = teacherEmail;
     }
 
-    public List<String> getTeacherStudents() {
-        return teacherStudents;
+    public List<String> getTeacherSubjects() {
+        return teacherSubjects;
     }
 
-    public void setTeacherStudents(List<String> teacherStudents) {
-        this.teacherStudents = teacherStudents;
+    public void setTeacherSubjects(List<String> teacherSubjects) {
+        this.teacherSubjects = teacherSubjects;
     }
 }
 

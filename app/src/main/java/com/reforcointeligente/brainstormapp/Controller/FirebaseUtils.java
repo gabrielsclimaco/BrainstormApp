@@ -2,7 +2,10 @@ package com.reforcointeligente.brainstormapp.Controller;
 
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.GridLayout;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -13,6 +16,9 @@ import com.reforcointeligente.brainstormapp.Model.Student;
 import com.reforcointeligente.brainstormapp.Model.Lesson;
 import com.reforcointeligente.brainstormapp.Model.Teacher;
 import com.reforcointeligente.brainstormapp.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class FirebaseUtils {
     private static DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -112,16 +118,7 @@ public class FirebaseUtils {
     }
 
     public static void saveTeacher(View view){
-//        private String teacherName;
-//        private String teacherAddress;
-//        private String teacherCity;
-//        private String teacherPhone;
-//        private String teacherCellphone;
-//        private String teacherCourse;
-//        private Boolean teacherCar;
-//        private Double pricePerHour;
-//        private String teacherEmail;
-//        private List<String> teacherSubjects;
+        List<String> teacherSubjects = new ArrayList<>();
 
         String name = ((EditText) view.findViewById(R.id.editTextTeacherName)).getText().toString();
         String address = ((EditText) view.findViewById(R.id.editTextTeacherAddress)).getText().toString();
@@ -129,8 +126,51 @@ public class FirebaseUtils {
         String phone = ((EditText) view.findViewById(R.id.editTextTeacherPhone)).getText().toString();
         String cellphone = ((EditText) view.findViewById(R.id.editTextTeacherCellphone)).getText().toString();
         String course = ((EditText) view.findViewById(R.id.editTextTeacherCourse)).getText().toString();
+        String email = ((EditText) view.findViewById(R.id.editTextTeacherEmail)).getText().toString();
 
+        Boolean car = false;
+        if (((RadioButton) view.findViewById(R.id.radioButtonNo)).isChecked()) {
+            car = false;
+        } else if (((RadioButton) view.findViewById(R.id.radioButtonYes)).isChecked()) {
+            car = true;
+        }
 
+        // assures that int is not a empty string
+        Double pricePerHour = 0.0;
+        if (!((EditText) view.findViewById(R.id.editTextTeacherPricePerHour)).getText()
+                .toString().equals("")) {
+            pricePerHour = Double.valueOf(((EditText)
+                    view.findViewById(R.id.editTextTeacherPricePerHour)).getText().toString());
+        }
 
+        GridLayout subjectsForm = (GridLayout) view.findViewById(R.id.gridSubjectsTeacherForm);
+
+        for (int i = 0; i < subjectsForm.getChildCount(); i++) {
+            CheckBox subject = ((CheckBox) subjectsForm.getChildAt(i));
+
+            if (subject.isChecked()) {
+                teacherSubjects.add(subject.getText().toString());
+            }
+        }
+
+        Teacher teacherToSave = new Teacher(name, address, city, phone, cellphone, course,
+                car, pricePerHour, email, teacherSubjects);
+
+        databaseReference.child("Teachers").push().setValue(teacherToSave);
+
+    }
+
+    public static FirebaseListAdapter<Teacher> loadTeachers(FragmentActivity fragmentActivity) {
+        FirebaseListAdapter<Teacher> adapter = new FirebaseListAdapter<Teacher>(fragmentActivity, Teacher.class,
+                android.R.layout.two_line_list_item,
+                databaseReference.child("Teachers")) {
+            @Override
+            protected void populateView(View view, Teacher teacher, int position) {
+                ((TextView) view.findViewById(android.R.id.text1)).setText(teacher.getTeacherName());
+                ((TextView) view.findViewById(android.R.id.text2)).setText(teacher.getTeacherCourse());
+            }
+        };
+
+        return adapter;
     }
 }

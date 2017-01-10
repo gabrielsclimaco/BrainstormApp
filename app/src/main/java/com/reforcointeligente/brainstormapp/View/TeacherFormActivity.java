@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 
+import com.reforcointeligente.brainstormapp.Controller.FirebaseUtils;
 import com.reforcointeligente.brainstormapp.Model.Teacher;
 import com.reforcointeligente.brainstormapp.R;
 
@@ -36,10 +37,11 @@ public class TeacherFormActivity extends AppCompatActivity {
         confirmTeacherButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                onTeacherCreated();
             }
         });
 
+        ((RadioButton) findViewById(R.id.radioButtonNo)).setChecked(true);
     }
 
     private void setUpSpinner() {
@@ -51,22 +53,10 @@ public class TeacherFormActivity extends AppCompatActivity {
         spinner.setAdapter(arrayAdapter);
     }
 
-    public void onRadioButtonClicked(View view) {
-        boolean checked = ((RadioButton) view).isChecked();
-
-        switch(view.getId()) {
-            case R.id.radioButtonYes:
-                if (checked)
-                    hasCar = true;
-                    break;
-            case R.id.radioButtonNo:
-                if (checked)
-                    hasCar = false;
-                    break;
-        }
-    }
-
     public void onTeacherCreated() {
+        View view = findViewById(R.id.activity_teacher_form);
+        FirebaseUtils.saveTeacher(view);
 
+        finish();
     }
 }

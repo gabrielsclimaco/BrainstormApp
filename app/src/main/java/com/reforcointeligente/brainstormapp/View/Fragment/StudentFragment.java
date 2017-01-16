@@ -4,27 +4,16 @@ package com.reforcointeligente.brainstormapp.View.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
-
-import com.firebase.ui.database.FirebaseListAdapter;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.reforcointeligente.brainstormapp.Controller.FirebaseUtils;
-import com.reforcointeligente.brainstormapp.Model.Student;
 import com.reforcointeligente.brainstormapp.R;
 import com.reforcointeligente.brainstormapp.View.StudentFormActivity;
 
-import java.util.List;
-
 public class StudentFragment extends Fragment {
-    private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
     private ListView listStudent;
 
     public StudentFragment(){

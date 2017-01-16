@@ -12,7 +12,6 @@ import android.widget.Spinner;
 import com.google.firebase.database.FirebaseDatabase;
 import com.reforcointeligente.brainstormapp.Controller.FirebaseUtils;
 import com.reforcointeligente.brainstormapp.R;
-import com.reforcointeligente.brainstormapp.View.Adapter.StudentSpinnerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

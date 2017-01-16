@@ -2,20 +2,29 @@ package com.reforcointeligente.brainstormapp.Controller;
 
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
+import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseListAdapter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.reforcointeligente.brainstormapp.Model.Student;
 import com.reforcointeligente.brainstormapp.Model.Lesson;
 import com.reforcointeligente.brainstormapp.Model.Teacher;
 import com.reforcointeligente.brainstormapp.R;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 public class FirebaseUtils {
     private static DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+    private static ArrayList<Student> studentSpinner = new ArrayList<>();
 
     public static void saveStudent(View view){
         String name = ((EditText) view.findViewById(R.id.editTextStudentName)).getText().toString();
@@ -54,15 +63,40 @@ public class FirebaseUtils {
         return adapter;
     }
 
+    public static ArrayList<String> getStudentsList() {
+        final ArrayList<String> studentsList = new ArrayList<>();
+        studentsList.add("");
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Students");
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot studentSnapshot: dataSnapshot.getChildren()) {
+                    String studentName = studentSnapshot.getValue(Student.class).getStudentName();
+                    studentsList.add(studentName);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        return studentsList;
+    }
+
     public static void saveLesson(View view){
         String date = ((EditText) view.findViewById(R.id.editTextLessonDate)).getText().toString();
         String time = ((EditText) view.findViewById(R.id.editTextLessonTime)).getText().toString();
         //Teacher teacher = ((Spinner) view.findViewById(R.id.spinnerLessonTeacher)).getSelectedItem();
-        //Student student = ((Spinner) view.findViewById(R.id.spinnerLessonStudent)).getSelectedItem();
-        String subject = ((Spinner) view.findViewById(R.id.spinnerLessonSubject)).getSelectedItem()
+        String studentName = ((Spinner) view.findViewById(R.id.spinnerLessonStudent))
+                .getSelectedItem()
                 .toString();
-        String place = ((EditText) view.findViewById(R.id.editTextLessonPlace)).getText()
+        String subject = ((Spinner) view.findViewById(R.id.spinnerLessonSubject))
+                .getSelectedItem()
                 .toString();
+        String place = ((EditText) view.findViewById(R.id.editTextLessonPlace)).getText().toString();
 
         // assures that int is not a empty string
         Double displacement = 0.0;
@@ -88,10 +122,8 @@ public class FirebaseUtils {
                     view.findViewById(R.id.editTextLessonDuration)).getText().toString());
         }
 
-        Student student = new Student();
-        Teacher teacher = new Teacher();
 
-        Lesson lessonToSave = new Lesson(date, time, teacher, student, subject,
+        Lesson lessonToSave = new Lesson(date, time, "", studentName, subject,
                 place, displacement, valuePerHour, duration);
 
         databaseReference.child("Lessons").push().setValue(lessonToSave);
@@ -105,6 +137,9 @@ public class FirebaseUtils {
             @Override
             protected void populateView(View view, Lesson lesson, int position) {
                 ((TextView) view.findViewById(android.R.id.text1)).setText(lesson.getLessonDate());
+                String subtitle = "Aluno: " + lesson.getLessonStudent() + "\nProfessor: " +
+                        lesson.getLessonTeacher();
+                ((TextView) view.findViewById(android.R.id.text2)).setText(subtitle);
             }
         };
 

@@ -8,13 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
-
+import com.reforcointeligente.brainstormapp.Controller.FirebaseUtils;
 import com.reforcointeligente.brainstormapp.R;
 import com.reforcointeligente.brainstormapp.View.LessonFormActivity;
 
 public class LessonFragment extends Fragment{
-
     private ListView listLesson;
 
     public LessonFragment(){
@@ -36,6 +34,14 @@ public class LessonFragment extends Fragment{
         });
 
         return rootView;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        // loading list of lessons
+        listLesson.setAdapter(FirebaseUtils.loadLessons(getActivity()));
     }
 
     public static LessonFragment newInstance() {

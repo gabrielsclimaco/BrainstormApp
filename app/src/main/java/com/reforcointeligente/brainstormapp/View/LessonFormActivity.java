@@ -1,28 +1,31 @@
 package com.reforcointeligente.brainstormapp.View;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.reforcointeligente.brainstormapp.Model.Lesson;
+import com.google.firebase.database.FirebaseDatabase;
+import com.reforcointeligente.brainstormapp.Controller.FirebaseUtils;
 import com.reforcointeligente.brainstormapp.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class LessonFormActivity extends AppCompatActivity {
-
-    private Button confirmLessonButton;
-    private Button cancelLessonButton;
-    Spinner spinner;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lesson_form);
 
-        cancelLessonButton = (Button) findViewById(R.id.buttonCancelLesson);
+        setUpStudentSpinner();
+        setUpSubjectSpinner();
+
+        Button cancelLessonButton = (Button) findViewById(R.id.buttonCancelLesson);
         cancelLessonButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -30,54 +33,40 @@ public class LessonFormActivity extends AppCompatActivity {
             }
         });
 
-        confirmLessonButton = (Button) findViewById(R.id.buttonConfirmLesson);
+        Button confirmLessonButton = (Button) findViewById(R.id.buttonConfirmLesson);
         confirmLessonButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                onLessonCreated();
             }
         });
     }
 
-    private void setUpSpinner() {
-        spinner = (Spinner) findViewById(R.id.spinnerSubject);
-        ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(this,
+    private void setUpSubjectSpinner() {
+        ArrayAdapter<CharSequence> subjectAdapter = ArrayAdapter.createFromResource(this,
                 R.array.list_of_subjects, android.R.layout.simple_spinner_dropdown_item);
-        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        subjectAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        spinner.setAdapter(arrayAdapter);
+        Spinner subjectSpinner = (Spinner) findViewById(R.id.spinnerLessonSubject);
+        subjectSpinner.setAdapter(subjectAdapter);
+    }
+
+    private void setUpStudentSpinner() {
+        ArrayList<String> studentsList = FirebaseUtils.getStudentsList();
+
+        ArrayAdapter<String> studentAdapter = new ArrayAdapter<>(getApplicationContext(),
+                android.R.layout.simple_spinner_dropdown_item, studentsList);
+        studentAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        Spinner studentSpinner = (Spinner) findViewById(R.id.spinnerLessonStudent);
+        studentSpinner.setAdapter(studentAdapter);
+//        studentSpinner.setAdapter(new StudentSpinnerAdapter(this, new ArrayList<String>()));
     }
 
     public void onLessonCreated() {
-//        Lesson lesson = new Lesson();
-//
-//        EditText dateEditText = (EditText) findViewById(R.id.editTextDate);
-//        EditText timeEditText = (EditText) findViewById(R.id.editTextTime);
-//        EditText placeEditText = (EditText) findViewById(R.id.editTextPlace);
-//        EditText displacementEditText = (EditText) findViewById(R.id.editTextDisplacement);
-//        EditText valuePerHourEditText = (EditText) findViewById(R.id.editTextValuePerHour);
-//        EditText durationLessonEditText = (EditText) findViewById(R.id.editTextLessonDuration);
-//        EditText totalLessonValueEditText = (EditText) findViewById(R.id.editTextTotalLessonValue);
-//        EditText valuePaidEditText = (EditText) findViewById(R.id.editTextValuePaid);
-//
-//        String subject = spinner.getSelectedItem().toString();
-//        String date = dateEditText.getText().toString();
-//        String time = timeEditText.getText().toString();
-//        String place = placeEditText.getText().toString();
-//        String displacement = displacementEditText.getText().toString();
-//        Double valuePerHour = Double.valueOf(valuePerHourEditText.getText().toString());
-//        Double duration = Double.valueOf(durationLessonEditText.getText().toString());
-//        Double totalLessonValue = Double.valueOf(totalLessonValueEditText.getText().toString());
-//        Double valuePaid = Double.valueOf(valuePaidEditText.getText().toString());
-//
-//        lesson.setLessonDate(date);
-//        lesson.setLessonTime(time);
-//        lesson.setLessonSubject(subject);
-//        lesson.setLessonPlace(place);
-//        lesson.setLessonDuration(duration);
+        View view = findViewById(R.id.activity_lesson_form);
+        FirebaseUtils.saveLesson(view);
 
-        // falta displacement, value per hour, total lesson value e value paid
-
-
+        finish();
     }
 }

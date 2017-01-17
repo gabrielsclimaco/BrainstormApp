@@ -1,32 +1,32 @@
 package com.reforcointeligente.brainstormapp.Model;
 
-import java.sql.Struct;
-
 public class Lesson {
     private String lessonDate;
     private String lessonTime;
-    private Teacher lessonTeacher;
-    private Student lessonStudent;
+    private String lessonTeacher;
+    private String lessonStudent;
     private String lessonSubject;
     private String lessonPlace;
-    private Double lessonPricePerHour;
+    private Double lessonDisplacement;
+    private Double lessonValuePerHour;
     private Double lessonDuration;
     private Double lessonTotalValue;
     private Double lessonProfit;
 
-    public Lesson(String lessonDate, String lessonTime, Teacher lessonTeacher, Student lessonStudent,
-                  String lessonSubject, String lessonPlace, Double lessonPricePerHour,
-                  Double lessonDuration, Double lessonTotalValue, Double lessonProfit) {
+    public Lesson () {}
+
+    public Lesson(String lessonDate, String lessonTime, String lessonTeacher, String lessonStudent,
+                  String lessonSubject, String lessonPlace, Double lessonDisplacement,
+                  Double lessonValuePerHour, Double lessonDuration) {
         this.lessonDate = lessonDate;
         this.lessonTime = lessonTime;
         this.lessonTeacher = lessonTeacher;
         this.lessonStudent = lessonStudent;
         this.lessonSubject = lessonSubject;
         this.lessonPlace = lessonPlace;
-        this.lessonPricePerHour = lessonPricePerHour;
+        this.lessonDisplacement = lessonDisplacement;
+        this.lessonValuePerHour = lessonValuePerHour;
         this.lessonDuration = lessonDuration;
-        this.lessonTotalValue = lessonTotalValue;
-        this.lessonProfit = lessonProfit;
     }
 
     public String getLessonDate() {
@@ -45,19 +45,19 @@ public class Lesson {
         this.lessonTime = lessonTime;
     }
 
-    public Teacher getLessonTeacher() {
+    public String getLessonTeacher() {
         return lessonTeacher;
     }
 
-    public void setLessonTeacher(Teacher lessonTeacher) {
+    public void setLessonTeacher(String lessonTeacher) {
         this.lessonTeacher = lessonTeacher;
     }
 
-    public Student getLessonStudent() {
+    public String getLessonStudent() {
         return lessonStudent;
     }
 
-    public void setLessonStudent(Student lessonStudent) {
+    public void setLessonStudent(String lessonStudent) {
         this.lessonStudent = lessonStudent;
     }
 
@@ -77,12 +77,20 @@ public class Lesson {
         this.lessonPlace = lessonPlace;
     }
 
-    public Double getLessonPricePerHour() {
-        return lessonPricePerHour;
+    public Double getLessonDisplacement() {
+        return lessonDisplacement;
     }
 
-    public void setLessonPricePerHour(Double lessonPricePerHour) {
-        this.lessonPricePerHour = lessonPricePerHour;
+    public void setLessonDisplacement(Double lessonDisplacement) {
+        this.lessonDisplacement = lessonDisplacement;
+    }
+
+    public Double getLessonValuePerHour() {
+        return lessonValuePerHour;
+    }
+
+    public void setLessonValuePerHour(Double lessonValuePerHour) {
+        this.lessonValuePerHour = lessonValuePerHour;
     }
 
     public Double getLessonDuration() {
@@ -99,7 +107,7 @@ public class Lesson {
     }
 
     private void setLessonTotalValue() {
-        lessonTotalValue = lessonPricePerHour * lessonDuration;
+        lessonTotalValue = lessonValuePerHour * lessonDuration;
     }
 
     public Double getLessonProfit() {
@@ -109,8 +117,6 @@ public class Lesson {
     }
 
     private void setLessonProfit() {
-        setLessonTotalValue();
 
-        lessonProfit = lessonTotalValue - lessonTeacher.getPricePerHour();
     }
 }

@@ -3,8 +3,8 @@ package com.reforcointeligente.brainstormapp.Model;
 public class Lesson {
     private String lessonDate;
     private String lessonTime;
-    private Teacher lessonTeacher;
-    private Student lessonStudent;
+    private String lessonTeacher;
+    private String lessonStudent;
     private String lessonSubject;
     private String lessonPlace;
     private Double lessonDisplacement;
@@ -13,7 +13,9 @@ public class Lesson {
     private Double lessonTotalValue;
     private Double lessonProfit;
 
-    public Lesson(String lessonDate, String lessonTime, Teacher lessonTeacher, Student lessonStudent,
+    public Lesson () {}
+
+    public Lesson(String lessonDate, String lessonTime, String lessonTeacher, String lessonStudent,
                   String lessonSubject, String lessonPlace, Double lessonDisplacement,
                   Double lessonValuePerHour, Double lessonDuration) {
         this.lessonDate = lessonDate;
@@ -43,19 +45,19 @@ public class Lesson {
         this.lessonTime = lessonTime;
     }
 
-    public Teacher getLessonTeacher() {
+    public String getLessonTeacher() {
         return lessonTeacher;
     }
 
-    public void setLessonTeacher(Teacher lessonTeacher) {
+    public void setLessonTeacher(String lessonTeacher) {
         this.lessonTeacher = lessonTeacher;
     }
 
-    public Student getLessonStudent() {
+    public String getLessonStudent() {
         return lessonStudent;
     }
 
-    public void setLessonStudent(Student lessonStudent) {
+    public void setLessonStudent(String lessonStudent) {
         this.lessonStudent = lessonStudent;
     }
 
@@ -115,8 +117,6 @@ public class Lesson {
     }
 
     private void setLessonProfit() {
-        setLessonTotalValue();
 
-        lessonProfit = lessonTotalValue - lessonTeacher.getPricePerHour();
     }
 }

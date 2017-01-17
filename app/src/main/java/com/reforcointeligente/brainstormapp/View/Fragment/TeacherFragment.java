@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.reforcointeligente.brainstormapp.Controller.FirebaseUtils;
 import com.reforcointeligente.brainstormapp.R;
 import com.reforcointeligente.brainstormapp.View.TeacherFormActivity;
 
@@ -37,6 +38,15 @@ public class TeacherFragment extends Fragment{
 
         return rootView;
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        // loading list of steacher
+        listTeacher.setAdapter(FirebaseUtils.loadTeachers(getActivity()));
+    }
+
 
     public static TeacherFragment newInstance() {
         return new TeacherFragment();

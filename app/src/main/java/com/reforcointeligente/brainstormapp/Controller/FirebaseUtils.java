@@ -53,6 +53,7 @@ public class FirebaseUtils {
             @Override
             protected void populateView(View view, Student student, int position) {
                 ((TextView) view.findViewById(android.R.id.text1)).setText(student.getStudentName());
+                ((TextView) view.findViewById(android.R.id.text1)).setTextSize(20);
                 ((TextView) view.findViewById(android.R.id.text2)).setText(student.getStudentParentName());
             }
         };
@@ -167,6 +168,8 @@ public class FirebaseUtils {
             @Override
             protected void populateView(View view, Teacher teacher, int position) {
                 ((TextView) view.findViewById(android.R.id.text1)).setText(teacher.getTeacherName());
+                ((TextView) view.findViewById(android.R.id.text1)).setTextSize(20);
+//                ((TextView) view.findViewById(android.R.id.text1)).setAllCaps(true);
                 ((TextView) view.findViewById(android.R.id.text2)).setText(teacher.getTeacherCourse());
             }
         };

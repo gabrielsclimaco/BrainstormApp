@@ -45,4 +45,6 @@
         <item>Geografia</item>
         <item>Outro</item>
     </array>
+    <string name="pick_date"></string>
+    <string name="pick_time" />
 </resources>

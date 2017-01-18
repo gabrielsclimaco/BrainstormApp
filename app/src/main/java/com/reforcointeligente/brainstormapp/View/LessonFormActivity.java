@@ -1,67 +1,43 @@
 package com.reforcointeligente.brainstormapp.View;
 
-<<<<<<< HEAD
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.support.v4.app.FragmentActivity;
-=======
->>>>>>> e625827a1a45fdccefc3c3baea956125995d66af
+import android.app.TimePickerDialog;
+import android.icu.text.TimeZoneFormat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-<<<<<<< HEAD
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
-=======
-import android.widget.Spinner;
->>>>>>> e625827a1a45fdccefc3c3baea956125995d66af
-
-import com.google.firebase.database.FirebaseDatabase;
 import com.reforcointeligente.brainstormapp.Controller.FirebaseUtils;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.reforcointeligente.brainstormapp.Model.Student;
 import com.reforcointeligente.brainstormapp.R;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
+import java.util.Locale;
 
 public class LessonFormActivity extends AppCompatActivity {
 
-<<<<<<< HEAD
-    private Button confirmLessonButton;
-    private Button cancelLessonButton;
-
-    Button btnDate;
-    int year_x, month_x, day_x;
-    static final int DIALOG_ID = 0;
-
-=======
->>>>>>> e625827a1a45fdccefc3c3baea956125995d66af
+    final Calendar calendar = Calendar.getInstance();
     Spinner spinner;
-    private static DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lesson_form);
 
-        final Calendar calendar = Calendar.getInstance();
-        year_x = calendar.get(Calendar.YEAR);
-        month_x = calendar.get(Calendar.MONTH);
-        day_x = calendar.get(Calendar.DAY_OF_MONTH);
+        setUpDatePicker();
+        setUpTimePicker();
 
-        showDialogOnButtonClick();
-
-        setUpStudentSpinner();
         setUpSubjectSpinner();
+        setUpTeacherSpinner();
+        setUpStudentSpinner();
 
         Button cancelLessonButton = (Button) findViewById(R.id.buttonCancelLesson);
         cancelLessonButton.setOnClickListener(new View.OnClickListener() {
@@ -80,38 +56,70 @@ public class LessonFormActivity extends AppCompatActivity {
         });
     }
 
-    public void showDialogOnButtonClick() {
-        btnDate = (Button) findViewById(R.id.btnDate);
-        btnDate.setOnClickListener(
+    public void onLessonCreated() {
+        View view = findViewById(R.id.activity_lesson_form);
+        FirebaseUtils.saveLesson(view);
+
+        finish();
+    }
+
+    private void setUpDatePicker() {
+        final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                calendar.set(Calendar.YEAR, year);
+                calendar.set(Calendar.MONTH, month);
+                calendar.set(Calendar.DAY_OF_MONTH, day);
+
+                updateDateLabel();
+            }
+        };
+
+        (findViewById(R.id.editTextLessonDate)).setOnClickListener(
                 new View.OnClickListener() {
                     @Override
-                    public void onClick(View v) {
-                        showDialog(DIALOG_ID);
+                    public void onClick(View view) {
+                        new DatePickerDialog(LessonFormActivity.this, date, calendar.get(Calendar.YEAR),
+                                calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
                     }
+                });
+    }
+
+    private void updateDateLabel() {
+        String dateFormat = "dd/MM/yyyy";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(dateFormat, Locale.ITALIAN);
+
+        ((EditText) findViewById(R.id.editTextLessonDate)).setText(simpleDateFormat
+                .format((calendar.getTime())));
+    }
+
+    private void setUpTimePicker() {
+        final TimePickerDialog.OnTimeSetListener time = new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int hour, int minute) {
+                calendar.set(Calendar.HOUR_OF_DAY, hour);
+                calendar.set(Calendar.MINUTE, minute);
+
+                if (hour >= 10) { // no need to add 0
+                    ((EditText) findViewById(R.id.editTextLessonTime)).setText(hour + ":" + minute);
+                } else { // adds 0 if needed
+                    ((EditText) findViewById(R.id.editTextLessonTime)).setText("0" + hour + ":"
+                            + minute);
                 }
+            }
+        };
+
+        (findViewById(R.id.editTextLessonTime)).setOnClickListener(
+            new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    new TimePickerDialog(LessonFormActivity.this, time,
+                            calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE),
+                            true).show();
+                }
+            }
         );
     }
-
-    @Override
-    protected Dialog onCreateDialog(int id) {
-        if (id == DIALOG_ID) {
-            return new DatePickerDialog(this, dPickerListener, year_x, month_x, day_x);
-        } else {
-            return null;
-        }
-    }
-
-    private DatePickerDialog.OnDateSetListener dPickerListener
-            = new DatePickerDialog.OnDateSetListener() {
-        @Override
-        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-            year_x = year;
-            month_x = monthOfYear + 1;
-            day_x = dayOfMonth;
-            Toast.makeText(LessonFormActivity.this, year_x + "/" + month_x + "/" + day_x,
-                    Toast.LENGTH_LONG).show();
-        }
-    };
 
     private void setUpSubjectSpinner() {
         ArrayAdapter<CharSequence> subjectAdapter = ArrayAdapter.createFromResource(this,
@@ -123,21 +131,25 @@ public class LessonFormActivity extends AppCompatActivity {
         subjectSpinner.setAdapter(subjectAdapter);
     }
 
-    private void setUpStudentSpinner() {
-        ArrayList<String> studentsList = FirebaseUtils.getStudentsList();
+    private void setUpTeacherSpinner() {
+        ArrayList<CharSequence> teachersList = FirebaseUtils.getTeachersList();
 
-        ArrayAdapter<String> studentAdapter = new ArrayAdapter<>(getApplicationContext(),
+        ArrayAdapter<CharSequence> teacherAdapter = new ArrayAdapter<>(getApplicationContext(),
+                android.R.layout.simple_spinner_dropdown_item, teachersList);
+        teacherAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        Spinner teacherSpinner = (Spinner) findViewById(R.id.spinnerLessonTeacher);
+        teacherSpinner.setAdapter(teacherAdapter);
+    }
+
+    private void setUpStudentSpinner() {
+        ArrayList<CharSequence> studentsList = FirebaseUtils.getStudentsList();
+
+        ArrayAdapter<CharSequence> studentAdapter = new ArrayAdapter<>(getApplicationContext(),
                 android.R.layout.simple_spinner_dropdown_item, studentsList);
         studentAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         Spinner studentSpinner = (Spinner) findViewById(R.id.spinnerLessonStudent);
         studentSpinner.setAdapter(studentAdapter);
-    }
-
-    public void onLessonCreated() {
-        View view = findViewById(R.id.activity_lesson_form);
-        FirebaseUtils.saveLesson(view);
-
-        finish();
     }
 }

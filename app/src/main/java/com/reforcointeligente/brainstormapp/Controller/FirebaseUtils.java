@@ -1,6 +1,7 @@
 package com.reforcointeligente.brainstormapp.Controller;
 
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -49,44 +50,6 @@ public class FirebaseUtils {
         databaseReference.child("Students").push().setValue(studentToSave);
     }
 
-    public static FirebaseListAdapter<Student> loadStudents(FragmentActivity fragmentActivity) {
-        FirebaseListAdapter<Student> adapter = new FirebaseListAdapter<Student>(fragmentActivity, Student.class,
-                android.R.layout.two_line_list_item,
-                databaseReference.child("Students")) {
-            @Override
-            protected void populateView(View view, Student student, int position) {
-                ((TextView) view.findViewById(android.R.id.text1)).setText(student.getStudentName());
-                ((TextView) view.findViewById(android.R.id.text1)).setTextSize(20);
-                ((TextView) view.findViewById(android.R.id.text2)).setText(student.getStudentParentName());
-            }
-        };
-
-        return adapter;
-    }
-
-    public static ArrayList<String> getStudentsList() {
-        final ArrayList<String> studentsList = new ArrayList<>();
-        studentsList.add("");
-
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Students");
-        reference.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot studentSnapshot: dataSnapshot.getChildren()) {
-                    String studentName = studentSnapshot.getValue(Student.class).getStudentName();
-                    studentsList.add(studentName);
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-        return studentsList;
-    }
-
     public static void saveLesson(View view){
         String date = ((EditText) view.findViewById(R.id.editTextLessonDate)).getText().toString();
         String time = ((EditText) view.findViewById(R.id.editTextLessonTime)).getText().toString();
@@ -128,22 +91,6 @@ public class FirebaseUtils {
 
         databaseReference.child("Lessons").push().setValue(lessonToSave);
 
-    }
-
-    public static FirebaseListAdapter<Lesson> loadLessons(FragmentActivity fragmentActivity) {
-        FirebaseListAdapter<Lesson> adapter = new FirebaseListAdapter<Lesson>(fragmentActivity, Lesson.class,
-                android.R.layout.two_line_list_item,
-                databaseReference.child("Lessons")) {
-            @Override
-            protected void populateView(View view, Lesson lesson, int position) {
-                ((TextView) view.findViewById(android.R.id.text1)).setText(lesson.getLessonDate());
-                String subtitle = "Aluno: " + lesson.getLessonStudent() + "\nProfessor: " +
-                        lesson.getLessonTeacher();
-                ((TextView) view.findViewById(android.R.id.text2)).setText(subtitle);
-            }
-        };
-
-        return adapter;
     }
 
     public static void saveTeacher(View view){
@@ -189,6 +136,37 @@ public class FirebaseUtils {
 
     }
 
+    public static FirebaseListAdapter<Student> loadStudents(FragmentActivity fragmentActivity) {
+        FirebaseListAdapter<Student> adapter = new FirebaseListAdapter<Student>(fragmentActivity, Student.class,
+                android.R.layout.two_line_list_item,
+                databaseReference.child("Students")) {
+            @Override
+            protected void populateView(View view, Student student, int position) {
+                ((TextView) view.findViewById(android.R.id.text1)).setText(student.getStudentName());
+                ((TextView) view.findViewById(android.R.id.text1)).setTextSize(20);
+                ((TextView) view.findViewById(android.R.id.text2)).setText(student.getStudentParentName());
+            }
+        };
+
+        return adapter;
+    }
+
+    public static FirebaseListAdapter<Lesson> loadLessons(FragmentActivity fragmentActivity) {
+        FirebaseListAdapter<Lesson> adapter = new FirebaseListAdapter<Lesson>(fragmentActivity, Lesson.class,
+                android.R.layout.two_line_list_item,
+                databaseReference.child("Lessons")) {
+            @Override
+            protected void populateView(View view, Lesson lesson, int position) {
+                ((TextView) view.findViewById(android.R.id.text1)).setText(lesson.getLessonDate());
+                String subtitle = "Aluno: " + lesson.getLessonStudent() + "\nProfessor: " +
+                        lesson.getLessonTeacher();
+                ((TextView) view.findViewById(android.R.id.text2)).setText(subtitle);
+            }
+        };
+
+        return adapter;
+    }
+
     public static FirebaseListAdapter<Teacher> loadTeachers(FragmentActivity fragmentActivity) {
         FirebaseListAdapter<Teacher> adapter = new FirebaseListAdapter<Teacher>(fragmentActivity, Teacher.class,
                 android.R.layout.two_line_list_item,
@@ -203,5 +181,51 @@ public class FirebaseUtils {
         };
 
         return adapter;
+    }
+
+    public static ArrayList<CharSequence> getStudentsList() {
+        final ArrayList<CharSequence> studentsList = new ArrayList<>();
+        studentsList.add("");
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Students");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot studentSnapshot: dataSnapshot.getChildren()) {
+                    String studentName = studentSnapshot.getValue(Student.class).getStudentName();
+                    studentsList.add(studentName);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e("Firebase error", databaseError.toString());
+            }
+        });
+
+        return studentsList;
+    }
+
+    public static ArrayList<CharSequence> getTeachersList() {
+        final ArrayList<CharSequence> teachersList = new ArrayList<>();
+        teachersList.add("");
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Teacher");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot teacherSnapshot: dataSnapshot.getChildren()) {
+                    String teacherName = teacherSnapshot.getValue(Teacher.class).getTeacherName();
+                    teachersList.add(teacherName);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e("Firebase error", databaseError.toString());
+            }
+        });
+
+        return teachersList;
     }
 }

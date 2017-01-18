@@ -32,29 +32,22 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/pick_time"
-                android:onClick="showTimePickerDialog"
-                android:hint="Show datepicker"
-                android:id="@+id/btnDate"/>
-
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="date"
+                android:focusable="false"
                 android:ems="10"
                 android:id="@+id/editTextLessonDate"
-                android:hint="Data:    (dd/mm/aaaa)"/>
+                android:hint="Data"/>
 
             <EditText
+                android:focusable="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="time"
                 android:ems="10"
                 android:id="@+id/editTextLessonTime"
-                android:hint="Hora:"/>
+                android:hint="Hora"/>
 
             <TextView
                 android:text="Professor: "
@@ -102,34 +95,39 @@
                 android:id="@+id/spinnerLessonSubject" />
 
             <EditText
+                android:focusable="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:id="@+id/editTextLessonPlace"
-                android:hint="Local:"/>
+                android:hint="Local"/>
 
             <EditText
+                android:focusable="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="number"
                 android:ems="10"
                 android:id="@+id/editTextLessonDisplacement"
-                android:hint="Deslocamento:"/>
+                android:hint="Deslocamento"/>
 
             <EditText
+                android:focusable="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
                 android:ems="10"
                 android:id="@+id/editTextLessonValuePerHour"
-                android:hint="Valor da hora/aula:"/>
+                android:hint="Valor da hora/aula"/>
 
             <EditText
+                android:focusable="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="time"
                 android:ems="10"
                 android:id="@+id/editTextLessonDuration"
-                android:hint="Horas de aula:" />
+                android:hint="Horas de aula" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -145,7 +143,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/buttonCancelLesson"
                     android:textSize="14dp"
-                    android:layout_marginRight="12dp"/>
+                    android:layout_marginRight="12dp"
+                    android:background="@color/colorAccent"/>
 
                 <Button
                     android:text="Confirmar"
@@ -153,7 +152,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/buttonConfirmLesson"
                     android:textSize="14dp"
-                    android:layout_marginLeft="12dp"/>
+                    android:layout_marginLeft="12dp"
+                    android:background="@color/colorAccent"/>
 
             </LinearLayout>
 

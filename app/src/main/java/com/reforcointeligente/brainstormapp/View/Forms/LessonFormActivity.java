@@ -33,7 +33,6 @@ public class LessonFormActivity extends AppCompatActivity {
         setUpDatePicker();
         setUpTimePicker();
 
-        setUpSubjectSpinner();
         setUpTeacherSpinner();
         setUpStudentSpinner();
 
@@ -117,16 +116,6 @@ public class LessonFormActivity extends AppCompatActivity {
                 }
             }
         );
-    }
-
-    private void setUpSubjectSpinner() {
-        ArrayAdapter<CharSequence> subjectAdapter = ArrayAdapter.createFromResource(this,
-            R.array.list_of_subjects, android.R.layout.simple_spinner_dropdown_item);
-        subjectAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        spinner = (Spinner) findViewById(R.id.spinnerLessonSubject);
-        Spinner subjectSpinner = (Spinner) findViewById(R.id.spinnerLessonSubject);
-        subjectSpinner.setAdapter(subjectAdapter);
     }
 
     private void setUpTeacherSpinner() {

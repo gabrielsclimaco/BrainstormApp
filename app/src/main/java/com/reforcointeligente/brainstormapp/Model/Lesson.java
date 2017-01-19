@@ -1,11 +1,13 @@
 package com.reforcointeligente.brainstormapp.Model;
 
+import java.util.ArrayList;
+
 public class Lesson {
     private String lessonDate;
     private String lessonTime;
     private String lessonTeacher;
     private String lessonStudent;
-    private String lessonSubject;
+    private ArrayList<String> lessonSubjects;
     private String lessonPlace;
     private Double lessonDisplacement;
     private Double lessonValuePerHour;
@@ -16,13 +18,13 @@ public class Lesson {
     public Lesson () {}
 
     public Lesson(String lessonDate, String lessonTime, String lessonTeacher, String lessonStudent,
-                  String lessonSubject, String lessonPlace, Double lessonDisplacement,
+                  ArrayList<String> lessonSubject, String lessonPlace, Double lessonDisplacement,
                   Double lessonValuePerHour, Double lessonDuration) {
         this.lessonDate = lessonDate;
         this.lessonTime = lessonTime;
         this.lessonTeacher = lessonTeacher;
         this.lessonStudent = lessonStudent;
-        this.lessonSubject = lessonSubject;
+        this.lessonSubjects = lessonSubject;
         this.lessonPlace = lessonPlace;
         this.lessonDisplacement = lessonDisplacement;
         this.lessonValuePerHour = lessonValuePerHour;
@@ -61,12 +63,12 @@ public class Lesson {
         this.lessonStudent = lessonStudent;
     }
 
-    public String getLessonSubject() {
-        return lessonSubject;
+    public ArrayList<String> getLessonSubject() {
+        return lessonSubjects;
     }
 
-    public void setLessonSubject(String lessonSubject) {
-        this.lessonSubject = lessonSubject;
+    public void setLessonSubject(ArrayList<String> lessonSubjects) {
+        this.lessonSubjects = lessonSubjects;
     }
 
     public String getLessonPlace() {

@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.reforcointeligente.brainstormapp.View.LessonFormActivity">
+    tools:context="com.reforcointeligente.brainstormapp.View.Forms.LessonFormActivity">
 
     <TextView
         android:text="Nova aula"
@@ -31,6 +31,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:id="@+id/editTextLessonPlace"
+                android:hint="Local"/>
 
             <EditText
                 android:layout_width="match_parent"
@@ -61,8 +68,7 @@
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/spinnerLessonTeacher"
-                android:layout_marginTop="15dp" />
+                android:id="@+id/spinnerLessonTeacher" />
 
             <TextView
                 android:text="Aluno: "
@@ -76,8 +82,7 @@
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/spinnerLessonStudent"
-                android:layout_marginTop="8dp" />
+                android:id="@+id/spinnerLessonStudent"/>
 
             <TextView
                 android:text="Disciplina: "
@@ -88,22 +93,80 @@
                 android:layout_marginLeft="3dp"
                 android:textSize="16dp" />
 
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="8dp"
-                android:id="@+id/spinnerLessonSubject" />
-
-            <EditText
-                android:focusable="false"
+            <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:id="@+id/editTextLessonPlace"
-                android:hint="Local"/>
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:id="@+id/gridSubjectsLessonForm">
+
+                <CheckBox
+                    android:text="Matemática"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBoxMath" />
+
+                <CheckBox
+                    android:text="Física"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBoxPhysics"
+                    android:layout_marginLeft="40dp"/>
+
+                <CheckBox
+                    android:text="Química"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBoxChemistry"
+                    android:layout_row="1"
+                    android:layout_column="0"/>
+
+                <CheckBox
+                    android:text="Biologia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBoxBiology"
+                    android:layout_row="1"
+                    android:layout_column="1"
+                    android:layout_marginLeft="40dp"/>
+
+                <CheckBox
+                    android:text="Português"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBoxPortuguese"
+                    android:layout_row="2"
+                    android:layout_column="0"/>
+
+                <CheckBox
+                    android:text="História"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBoxHistory"
+                    android:layout_row="2"
+                    android:layout_column="1"
+                    android:layout_marginLeft="40dp"/>
+
+                <CheckBox
+                    android:text="Geografia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBoxGeography"
+                    android:layout_row="3"
+                    android:layout_column="0"/>
+
+                <CheckBox
+                    android:text="Outro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkBoxOther"
+                    android:layout_row="3"
+                    android:layout_column="1"
+                    android:layout_marginLeft="40dp"/>
+
+            </GridLayout>
 
             <EditText
-                android:focusable="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
@@ -112,7 +175,6 @@
                 android:hint="Deslocamento"/>
 
             <EditText
-                android:focusable="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
@@ -121,7 +183,6 @@
                 android:hint="Valor da hora/aula"/>
 
             <EditText
-                android:focusable="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="time"

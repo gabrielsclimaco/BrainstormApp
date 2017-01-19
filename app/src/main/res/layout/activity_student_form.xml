@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.reforcointeligente.brainstormapp.View.StudentFormActivity">
+    tools:context="com.reforcointeligente.brainstormapp.View.Forms.StudentFormActivity">
 
     <TextView
         android:text="Novo aluno"
@@ -44,7 +44,6 @@
                 android:layout_centerHorizontal="true" />
 
             <EditText
-                android:focusable="false"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:ems="10"
@@ -55,7 +54,6 @@
                 android:hint="Nome"/>
 
             <EditText
-                android:focusable="false"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:ems="10"
@@ -66,27 +64,24 @@
                 android:inputType="number"/>
 
             <EditText
-                android:focusable="false"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:ems="10"
-                android:id="@+id/editTextStudentSchoolYear"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:hint="Colégio/Faculdade"/>
-
-            <EditText
-                android:focusable="false"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:ems="10"
                 android:id="@+id/editTextStudentSchool"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
+                android:hint="Colégio/Faculdade"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:id="@+id/editTextStudentSchoolYear"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
                 android:hint="Série/Curso"/>
 
             <EditText
-                android:focusable="false"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:ems="10"
@@ -130,7 +125,6 @@
                 android:layout_centerHorizontal="true" />
 
             <EditText
-                android:focusable="false"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:ems="10"
@@ -141,7 +135,6 @@
                 android:hint="Nome"/>
 
             <EditText
-                android:focusable="false"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="phone"
@@ -152,7 +145,6 @@
                 android:hint="Celular"/>
 
             <EditText
-                android:focusable="false"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="phone"
@@ -163,7 +155,6 @@
                 android:hint="Telefone residencial"/>
 
             <EditText
-                android:focusable="false"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/editTextStudentParentEmail"

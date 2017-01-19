@@ -45,7 +45,7 @@ public class FirebaseUtils {
         }
 
         Student studentToSave = new Student(name, age, address, city, schoolYear, school, nameParent,
-                phoneParent, cellphoneParent, emailParent);
+                phoneParent, cellphoneParent, emailParent, 0.0);
 
         databaseReference.child("Students").push().setValue(studentToSave);
     }
@@ -55,9 +55,6 @@ public class FirebaseUtils {
         String time = ((EditText) view.findViewById(R.id.editTextLessonTime)).getText().toString();
         //Teacher teacher = ((Spinner) view.findViewById(R.id.spinnerLessonTeacher)).getSelectedItem();
         String studentName = ((Spinner) view.findViewById(R.id.spinnerLessonStudent))
-                .getSelectedItem()
-                .toString();
-        String subject = ((Spinner) view.findViewById(R.id.spinnerLessonSubject))
                 .getSelectedItem()
                 .toString();
         String place = ((EditText) view.findViewById(R.id.editTextLessonPlace)).getText().toString();
@@ -86,7 +83,18 @@ public class FirebaseUtils {
                     view.findViewById(R.id.editTextLessonDuration)).getText().toString());
         }
 
-        Lesson lessonToSave = new Lesson(date, time, "", studentName, subject,
+        GridLayout subjectsForm = (GridLayout) view.findViewById(R.id.gridSubjectsLessonForm);
+        ArrayList<String> lessonSubjects = new ArrayList<>();
+
+        for (int i = 0; i < subjectsForm.getChildCount(); i++) {
+            CheckBox subject = ((CheckBox) subjectsForm.getChildAt(i));
+
+            if (subject.isChecked()) {
+                lessonSubjects.add(subject.getText().toString());
+            }
+        }
+
+        Lesson lessonToSave = new Lesson(date, time, "", studentName, lessonSubjects,
                 place, displacement, valuePerHour, duration);
 
         databaseReference.child("Lessons").push().setValue(lessonToSave);
@@ -119,7 +127,7 @@ public class FirebaseUtils {
                     view.findViewById(R.id.editTextTeacherPricePerHour)).getText().toString());
         }
 
-        GridLayout subjectsForm = (GridLayout) view.findViewById(R.id.gridSubjectsTeacherForm);
+        GridLayout subjectsForm = (GridLayout) view.findViewById(R.id.gridSubjectsLessonForm);
 
         for (int i = 0; i < subjectsForm.getChildCount(); i++) {
             CheckBox subject = ((CheckBox) subjectsForm.getChildAt(i));
@@ -143,7 +151,6 @@ public class FirebaseUtils {
             @Override
             protected void populateView(View view, Student student, int position) {
                 ((TextView) view.findViewById(android.R.id.text1)).setText(student.getStudentName());
-                ((TextView) view.findViewById(android.R.id.text1)).setTextSize(20);
                 ((TextView) view.findViewById(android.R.id.text2)).setText(student.getStudentParentName());
             }
         };
@@ -174,8 +181,6 @@ public class FirebaseUtils {
             @Override
             protected void populateView(View view, Teacher teacher, int position) {
                 ((TextView) view.findViewById(android.R.id.text1)).setText(teacher.getTeacherName());
-                ((TextView) view.findViewById(android.R.id.text1)).setTextSize(20);
-//                ((TextView) view.findViewById(android.R.id.text1)).setAllCaps(true);
                 ((TextView) view.findViewById(android.R.id.text2)).setText(teacher.getTeacherCourse());
             }
         };

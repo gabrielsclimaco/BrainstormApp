@@ -26,9 +26,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.LessonFormActivity" />
-        <activity android:name=".View.TeacherFormActivity" />
-        <activity android:name=".View.StudentFormActivity"></activity>
+        <activity android:name=".View.Forms.LessonFormActivity" />
+        <activity android:name=".View.Forms.TeacherFormActivity" />
+        <activity android:name=".View.Forms.StudentFormActivity" />
+        <activity android:name=".View.SelectedObject.SelectedStudentActivity"></activity>
     </application>
 
 </manifest>

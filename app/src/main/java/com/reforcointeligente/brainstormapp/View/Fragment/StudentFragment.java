@@ -7,10 +7,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import com.reforcointeligente.brainstormapp.Controller.FirebaseUtils;
+import com.reforcointeligente.brainstormapp.Model.Student;
 import com.reforcointeligente.brainstormapp.R;
+import com.reforcointeligente.brainstormapp.View.SelectedObjectActivity;
 import com.reforcointeligente.brainstormapp.View.StudentFormActivity;
 
 public class StudentFragment extends Fragment {
@@ -25,6 +28,17 @@ public class StudentFragment extends Fragment {
 
         listStudent = (ListView) rootView.findViewById(R.id.list_student);
 
+        listStudent.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> lista, View item, int position, long id) {
+                Student student = (Student) listStudent.getItemAtPosition(position);
+
+                Intent goToSelectedStudent = new Intent(getContext(), SelectedObjectActivity.class);
+                startActivity(goToSelectedStudent);
+            }
+        });
+
+
         Button newStudentButton = (Button) rootView.findViewById(R.id.list_new_student);
 
         newStudentButton.setOnClickListener(new View.OnClickListener() {
@@ -34,6 +48,8 @@ public class StudentFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        registerForContextMenu(listStudent);
 
         return rootView;
     }
@@ -49,4 +65,5 @@ public class StudentFragment extends Fragment {
     public static StudentFragment newInstance() {
         return new StudentFragment();
     }
+
 }

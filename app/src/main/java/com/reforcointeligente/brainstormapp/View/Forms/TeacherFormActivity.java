@@ -1,4 +1,4 @@
-package com.reforcointeligente.brainstormapp.View;
+package com.reforcointeligente.brainstormapp.View.Forms;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

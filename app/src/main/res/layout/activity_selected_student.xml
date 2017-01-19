@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_selected_student"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.reforcointeligente.brainstormapp.View.SelectedObject.SelectedStudentActivity">
+
+    <TextView
+        android:text="Dados do aluno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/textViewTitleStudentSelected"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome: "
+        android:paddingTop="12sp"
+        android:layout_below="@id/textViewTitleStudentSelected"
+        android:id="@+id/student_name_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12sp"
+        android:layout_below="@id/textViewTitleStudentSelected"
+        android:layout_toRightOf="@id/student_name_label"
+        android:id="@+id/student_name_text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Idade: "
+        android:paddingTop="12sp"
+        android:layout_below="@id/student_name_label"
+        android:id="@+id/student_age_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12sp"
+        android:layout_below="@id/student_name_label"
+        android:layout_toRightOf="@id/student_age_label"
+        android:id="@+id/student_age_text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Colégio/Faculdade: "
+        android:paddingTop="12sp"
+        android:layout_below="@id/student_age_label"
+        android:id="@+id/student_school_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12sp"
+        android:layout_below="@id/student_age_label"
+        android:layout_toRightOf="@id/student_school_label"
+        android:id="@+id/student_school_text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Série/Curso: "
+        android:paddingTop="12sp"
+        android:layout_below="@id/student_school_label"
+        android:id="@+id/student_school_year_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12sp"
+        android:layout_below="@id/student_school_label"
+        android:layout_toRightOf="@id/student_school_year_label"
+        android:id="@+id/student_school_year_text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Endereço: "
+        android:paddingTop="12sp"
+        android:layout_below="@id/student_school_year_label"
+        android:id="@+id/student_address_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12sp"
+        android:layout_below="@id/student_school_year_label"
+        android:layout_toRightOf="@id/student_address_label"
+        android:id="@+id/student_address_text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cidade: "
+        android:paddingTop="12sp"
+        android:layout_below="@id/student_address_label"
+        android:id="@+id/student_city_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12sp"
+        android:layout_below="@id/student_address_label"
+        android:layout_toRightOf="@id/student_city_label"
+        android:id="@+id/student_city_text"/>
+
+    <TextView
+        android:text="Dados do responsável"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:paddingTop="24sp"
+        android:id="@+id/textViewTitleParentStudentSelected"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/student_city_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome do Responsável: "
+        android:paddingTop="12sp"
+        android:layout_below="@id/textViewTitleParentStudentSelected"
+        android:id="@+id/student_parent_name_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12sp"
+        android:layout_below="@id/textViewTitleParentStudentSelected"
+        android:layout_toRightOf="@id/student_parent_name_label"
+        android:id="@+id/student_parent_name_text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Celular do Responsável: "
+        android:paddingTop="12sp"
+        android:layout_below="@id/student_parent_name_label"
+        android:id="@+id/student_parent_cellphone_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12sp"
+        android:layout_below="@id/student_parent_name_label"
+        android:layout_toRightOf="@id/student_parent_cellphone_label"
+        android:id="@+id/student_parent_cellphone_text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Telefone do Responsável: "
+        android:paddingTop="12sp"
+        android:layout_below="@id/student_parent_cellphone_label"
+        android:id="@+id/student_parent_phone_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12sp"
+        android:layout_below="@id/student_parent_cellphone_label"
+        android:layout_toRightOf="@id/student_parent_phone_label"
+        android:id="@+id/student_parent_phone_text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email do Responsável: "
+        android:paddingTop="12sp"
+        android:layout_below="@id/student_parent_phone_label"
+        android:id="@+id/student_parent_email_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12sp"
+        android:layout_below="@id/student_parent_phone_label"
+        android:layout_toRightOf="@id/student_parent_email_label"
+        android:id="@+id/student_parent_email_text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total a pagar: R$ "
+        android:paddingTop="12sp"
+        android:layout_below="@id/student_parent_email_label"
+        android:id="@+id/student_debt_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12sp"
+        android:layout_below="@id/student_parent_email_label"
+        android:layout_toRightOf="@id/student_debt_label"
+        android:id="@+id/student_debt_text"/>
+
+</RelativeLayout>

@@ -13,8 +13,10 @@ import android.widget.ListView;
 import com.reforcointeligente.brainstormapp.Controller.FirebaseUtils;
 import com.reforcointeligente.brainstormapp.Model.Student;
 import com.reforcointeligente.brainstormapp.R;
-import com.reforcointeligente.brainstormapp.View.SelectedObjectActivity;
-import com.reforcointeligente.brainstormapp.View.StudentFormActivity;
+import com.reforcointeligente.brainstormapp.View.Forms.StudentFormActivity;
+import com.reforcointeligente.brainstormapp.View.SelectedObject.SelectedStudentActivity;
+
+import java.io.Serializable;
 
 public class StudentFragment extends Fragment {
     private ListView listStudent;
@@ -33,7 +35,8 @@ public class StudentFragment extends Fragment {
             public void onItemClick(AdapterView<?> lista, View item, int position, long id) {
                 Student student = (Student) listStudent.getItemAtPosition(position);
 
-                Intent goToSelectedStudent = new Intent(getContext(), SelectedObjectActivity.class);
+                Intent goToSelectedStudent = new Intent(getContext(), SelectedStudentActivity.class);
+                goToSelectedStudent.putExtra("student", student);
                 startActivity(goToSelectedStudent);
             }
         });

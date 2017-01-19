@@ -11,7 +11,7 @@ import android.widget.ListView;
 
 import com.reforcointeligente.brainstormapp.Controller.FirebaseUtils;
 import com.reforcointeligente.brainstormapp.R;
-import com.reforcointeligente.brainstormapp.View.TeacherFormActivity;
+import com.reforcointeligente.brainstormapp.View.Forms.TeacherFormActivity;
 
 public class TeacherFragment extends Fragment{
 

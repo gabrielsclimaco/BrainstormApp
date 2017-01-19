@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import com.reforcointeligente.brainstormapp.Controller.FirebaseUtils;
 import com.reforcointeligente.brainstormapp.R;
-import com.reforcointeligente.brainstormapp.View.LessonFormActivity;
+import com.reforcointeligente.brainstormapp.View.Forms.LessonFormActivity;
 
 public class LessonFragment extends Fragment{
     private ListView listLesson;

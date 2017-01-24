@@ -2,6 +2,8 @@ package com.reforcointeligente.brainstormapp.View.Forms;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.telephony.PhoneNumberFormattingTextWatcher;
+import android.telephony.PhoneNumberUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -10,20 +12,45 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.google.firebase.database.FirebaseDatabase;
+import com.reforcointeligente.brainstormapp.Controller.BrPhoneNumberFormatter;
 import com.reforcointeligente.brainstormapp.Controller.FirebaseUtils;
 import com.reforcointeligente.brainstormapp.Model.Student;
 import com.reforcointeligente.brainstormapp.R;
 
 import com.google.firebase.database.DatabaseReference;
 
+import java.lang.ref.WeakReference;
+
 public class StudentFormActivity extends AppCompatActivity {
+    EditText parentPhone;
+    EditText parentCellphone;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_form);
 
+        parentPhone = (EditText) findViewById(R.id.editTextStudentParentPhone);
+        parentCellphone = (EditText) findViewById(R.id.editTextStudentParentCellphone);
+
         setUpSpinner();
 
+        maskPhoneNumbers();
+
+        listenButtonClickEvents();
+    }
+
+    private void maskPhoneNumbers() {
+        BrPhoneNumberFormatter addLineNumberFormatterPhone = new BrPhoneNumberFormatter(
+                new WeakReference<>(parentPhone));
+        parentPhone.addTextChangedListener(addLineNumberFormatterPhone);
+
+        BrPhoneNumberFormatter addLineNumberFormatterCellphone = new BrPhoneNumberFormatter(
+                new WeakReference<>(parentCellphone));
+        parentCellphone.addTextChangedListener(addLineNumberFormatterCellphone);
+    }
+
+    private void listenButtonClickEvents() {
         Button cancelStudentButton = (Button) findViewById(R.id.buttonCancelStudent);
         cancelStudentButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,24 +78,76 @@ public class StudentFormActivity extends AppCompatActivity {
     }
 
     public void onStudentCreated() {
-        validateStudentForm();
+        if (isStudentFormValid()) {
+            View view = findViewById(R.id.activity_student_form);
+            FirebaseUtils.saveStudent(view);
 
-        View view = findViewById(R.id.activity_student_form);
-        FirebaseUtils.saveStudent(view);
-
-        finish();
-    }
-
-    private void validateStudentForm() {
-        validateName();
-    }
-
-    private void validateName() {
-        EditText nameField = ((EditText) findViewById(R.id.editTextStudentName));
-        String name = nameField.getText().toString();
-
-        if (name == null) {
-            nameField.setError("Você não pode adicionar um aluno sem nome");
+            finish();
         }
+
+    }
+
+    private boolean isStudentFormValid() {
+        boolean isValid = false;
+
+        if (validateName()
+                && validatePhoneNumber()
+                && validateCellphoneNumber()
+                && validateEmail()) {
+            isValid = true;
+        }
+
+        return isValid;
+    }
+
+    private boolean validateEmail() {
+        boolean isEmailValid = true;
+        EditText emailField = (EditText) findViewById(R.id.editTextStudentParentEmail);
+
+        if (!emailField.getText().toString().equals("")
+                && !emailField.getText().toString().contains("@")) {
+            emailField.setError("O email inserido é invalido");
+            isEmailValid = false;
+        }
+
+        return isEmailValid;
+    }
+
+    private boolean validatePhoneNumber() {
+        boolean isNumberValid = true;
+
+        boolean lessThen14 = parentPhone.getText().toString().length() > 0 && parentPhone.getText().toString().length() < 14;
+
+        if (lessThen14) {
+            parentPhone.setError("O número inserido é inválido");
+            isNumberValid = false;
+        }
+
+        return isNumberValid;
+    }
+
+    private boolean validateCellphoneNumber() {
+        boolean isNumberValid = true;
+
+        boolean lessThen14 = parentCellphone.getText().toString().length() > 0 && parentCellphone.getText().toString().length() < 14;
+
+        if (lessThen14) {
+            parentCellphone.setError("O número inserido é inválido");
+            isNumberValid = false;
+        }
+
+        return isNumberValid;
+    }
+
+    private boolean validateName() {
+        boolean isNameValid = true;
+        EditText nameField = ((EditText) findViewById(R.id.editTextStudentName));
+
+        if (nameField.getText().toString().equals("")) {
+            nameField.setError("Você não pode adicionar um aluno sem nome");
+            isNameValid = false;
+        }
+
+        return isNameValid;
     }
 }

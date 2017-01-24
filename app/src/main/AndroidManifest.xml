@@ -29,7 +29,8 @@
         <activity android:name=".View.Forms.LessonFormActivity" />
         <activity android:name=".View.Forms.TeacherFormActivity" />
         <activity android:name=".View.Forms.StudentFormActivity" />
-        <activity android:name=".View.SelectedObject.SelectedStudentActivity"></activity>
+        <activity android:name=".View.SelectedObject.SelectedStudentActivity" />
+        <activity android:name=".View.SelectedObject.SelectedTeacherActivity"></activity>
     </application>
 
 </manifest>

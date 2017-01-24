@@ -1,8 +1,9 @@
 package com.reforcointeligente.brainstormapp.Model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Teacher {
+public class Teacher implements Serializable{
 
     private String teacherName;
     private String teacherAddress;
@@ -14,11 +15,12 @@ public class Teacher {
     private Double pricePerHour;
     private String teacherEmail;
     private List<String> teacherSubjects;
+    private Double teacherValueToPay;
 
     public Teacher(String teacherName, String teacherAddress, String teacherCity,
                    String teacherPhone, String teacherCellphone, String teacherCourse,
                    Boolean teacherCar, Double pricePerHour, String teacherEmail,
-                   List<String> teacherSubjects) {
+                   List<String> teacherSubjects, Double teacherValueToPay) {
         this.teacherName = teacherName;
         this.teacherAddress = teacherAddress;
         this.teacherCity = teacherCity;
@@ -29,6 +31,7 @@ public class Teacher {
         this.pricePerHour = pricePerHour;
         this.teacherEmail = teacherEmail;
         this.teacherSubjects = teacherSubjects;
+        this.teacherValueToPay = teacherValueToPay;
     }
 
     public Teacher() {
@@ -113,6 +116,14 @@ public class Teacher {
 
     public void setTeacherSubjects(List<String> teacherSubjects) {
         this.teacherSubjects = teacherSubjects;
+    }
+
+    public Double getTeacherValueToPay() {
+        return teacherValueToPay;
+    }
+
+    public void setTeacherValueToPay(Double teacherValueToPay) {
+        this.teacherValueToPay = teacherValueToPay;
     }
 }
 

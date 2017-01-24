@@ -127,7 +127,7 @@ public class FirebaseUtils {
                     view.findViewById(R.id.editTextTeacherPricePerHour)).getText().toString());
         }
 
-        GridLayout subjectsForm = (GridLayout) view.findViewById(R.id.gridSubjectsLessonForm);
+        GridLayout subjectsForm = (GridLayout) view.findViewById(R.id.gridSubjectsTeacherForm);
 
         for (int i = 0; i < subjectsForm.getChildCount(); i++) {
             CheckBox subject = ((CheckBox) subjectsForm.getChildAt(i));
@@ -138,7 +138,7 @@ public class FirebaseUtils {
         }
 
         Teacher teacherToSave = new Teacher(name, address, city, phone, cellphone, course,
-                car, pricePerHour, email, teacherSubjects);
+                car, pricePerHour, email, teacherSubjects, 0.0);
 
         databaseReference.child("Teachers").push().setValue(teacherToSave);
 

@@ -6,12 +6,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
 import com.reforcointeligente.brainstormapp.Controller.FirebaseUtils;
+import com.reforcointeligente.brainstormapp.Model.Teacher;
 import com.reforcointeligente.brainstormapp.R;
 import com.reforcointeligente.brainstormapp.View.Forms.TeacherFormActivity;
+import com.reforcointeligente.brainstormapp.View.SelectedObject.SelectedTeacherActivity;
 
 public class TeacherFragment extends Fragment{
 
@@ -25,6 +28,17 @@ public class TeacherFragment extends Fragment{
         View rootView = inflater.inflate(R.layout.teacher_fragment, container, false);
 
         listTeacher = (ListView) rootView.findViewById(R.id.list_teacher);
+
+        listTeacher.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> lista, View item, int position, long id) {
+                Teacher teacher = (Teacher) listTeacher.getItemAtPosition(position);
+
+                Intent goToSelectedTeacher = new Intent(getContext(), SelectedTeacherActivity.class);
+                goToSelectedTeacher.putExtra("teacher", teacher);
+                startActivity(goToSelectedTeacher);
+            }
+        });
 
         Button newTeacherButton = (Button) rootView.findViewById(R.id.list_new_teacher);
 

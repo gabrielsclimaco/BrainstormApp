@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_selected_teacher"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.reforcointeligente.brainstormapp.View.SelectedObject.SelectedTeacherActivity">
+
+    <TextView
+        android:text="Dados do professor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/textViewTitleTeacherSelected"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome: "
+        android:textStyle="bold"
+        android:paddingTop="12sp"
+        android:layout_below="@id/textViewTitleTeacherSelected"
+        android:id="@+id/teacher_name_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12sp"
+        android:layout_below="@id/textViewTitleTeacherSelected"
+        android:layout_toRightOf="@id/teacher_name_label"
+        android:id="@+id/teacher_name_text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Endereço: "
+        android:textStyle="bold"
+        android:paddingTop="12sp"
+        android:layout_below="@id/teacher_name_label"
+        android:id="@+id/teacher_address_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12sp"
+        android:layout_below="@id/teacher_name_label"
+        android:layout_toRightOf="@id/teacher_address_label"
+        android:id="@+id/teacher_address_text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cidade: "
+        android:textStyle="bold"
+        android:paddingTop="12sp"
+        android:layout_below="@id/teacher_address_label"
+        android:id="@+id/teacher_city_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12sp"
+        android:layout_below="@id/teacher_address_label"
+        android:layout_toRightOf="@id/teacher_city_label"
+        android:id="@+id/teacher_city_text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Graduação: "
+        android:textStyle="bold"
+        android:paddingTop="12sp"
+        android:layout_below="@+id/teacher_city_label"
+        android:id="@+id/teacher_course_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12sp"
+        android:layout_below="@+id/teacher_city_label"
+        android:layout_toRightOf="@+id/teacher_course_label"
+        android:id="@+id/teacher_course_text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Telefone residencial: "
+        android:textStyle="bold"
+        android:paddingTop="12sp"
+        android:layout_below="@+id/teacher_course_label"
+        android:id="@+id/teacher_phone_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12sp"
+        android:layout_below="@+id/teacher_course_label"
+        android:layout_toRightOf="@+id/teacher_phone_label"
+        android:id="@+id/teacher_phone_text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Celular: "
+        android:textStyle="bold"
+        android:paddingTop="12sp"
+        android:layout_below="@+id/teacher_phone_label"
+        android:id="@+id/teacher_cellphone_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12sp"
+        android:layout_below="@+id/teacher_phone_label"
+        android:layout_toRightOf="@id/teacher_cellphone_label"
+        android:id="@+id/teacher_cellphone_text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tem carro? "
+        android:textStyle="bold"
+        android:paddingTop="12sp"
+        android:layout_below="@+id/teacher_cellphone_label"
+        android:id="@+id/teacher_car_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12sp"
+        android:layout_below="@id/teacher_cellphone_label"
+        android:layout_toRightOf="@id/teacher_car_label"
+        android:id="@+id/teacher_car_text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Valor da hora/aula: "
+        android:paddingTop="12sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/teacher_car_label"
+        android:id="@+id/teacher_pricePerHour_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="R$ "
+        android:paddingTop="12sp"
+        android:layout_below="@+id/teacher_car_label"
+        android:layout_toRightOf="@+id/teacher_pricePerHour_label"
+        android:id="@+id/teacher_pricePerHour_cipher"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12sp"
+        android:layout_below="@+id/teacher_car_label"
+        android:layout_toRightOf="@id/teacher_pricePerHour_cipher"
+        android:id="@+id/teacher_pricePerHour_text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="E-mail: "
+        android:textStyle="bold"
+        android:paddingTop="12sp"
+        android:layout_below="@+id/teacher_pricePerHour_label"
+        android:id="@+id/teacher_email_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12sp"
+        android:layout_below="@+id/teacher_pricePerHour_label"
+        android:layout_toRightOf="@+id/teacher_email_label"
+        android:id="@+id/teacher_email_text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Matéria(s): "
+        android:textStyle="bold"
+        android:paddingTop="12sp"
+        android:layout_below="@+id/teacher_email_label"
+        android:id="@+id/teacher_subjects_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12sp"
+        android:layout_below="@id/teacher_email_label"
+        android:layout_toRightOf="@id/teacher_subjects_label"
+        android:id="@+id/teacher_subjects_text"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total a receber: "
+        android:textStyle="bold"
+        android:paddingTop="12sp"
+        android:layout_below="@+id/teacher_subjects_label"
+        android:id="@+id/teacher_valueToPay_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12sp"
+        android:text="R$ "
+        android:layout_below="@+id/teacher_subjects_label"
+        android:layout_toRightOf="@+id/teacher_valueToPay_label"
+        android:id="@+id/teacher_cipher"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12sp"
+        android:layout_below="@id/teacher_subjects_label"
+        android:layout_toRightOf="@id/teacher_cipher"
+        android:id="@+id/teacher_valueToPay_text"/>
+
+</RelativeLayout>

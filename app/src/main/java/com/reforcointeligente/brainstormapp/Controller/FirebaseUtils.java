@@ -53,7 +53,9 @@ public class FirebaseUtils {
     public static void saveLesson(View view){
         String date = ((EditText) view.findViewById(R.id.editTextLessonDate)).getText().toString();
         String time = ((EditText) view.findViewById(R.id.editTextLessonTime)).getText().toString();
-        //Teacher teacher = ((Spinner) view.findViewById(R.id.spinnerLessonTeacher)).getSelectedItem();
+        String teacherName = ((Spinner) view.findViewById(R.id.spinnerLessonTeacher))
+                .getSelectedItem()
+                .toString();
         String studentName = ((Spinner) view.findViewById(R.id.spinnerLessonStudent))
                 .getSelectedItem()
                 .toString();
@@ -94,7 +96,7 @@ public class FirebaseUtils {
             }
         }
 
-        Lesson lessonToSave = new Lesson(date, time, "", studentName, lessonSubjects,
+        Lesson lessonToSave = new Lesson(date, time, teacherName, studentName, lessonSubjects,
                 place, displacement, valuePerHour, duration);
 
         databaseReference.child("Lessons").push().setValue(lessonToSave);
@@ -164,7 +166,8 @@ public class FirebaseUtils {
                 databaseReference.child("Lessons")) {
             @Override
             protected void populateView(View view, Lesson lesson, int position) {
-                ((TextView) view.findViewById(android.R.id.text1)).setText(lesson.getLessonDate());
+                String title = lesson.getLessonDate() + " - " + lesson.getLessonTime();
+                ((TextView) view.findViewById(android.R.id.text1)).setText(title);
                 String subtitle = "Aluno: " + lesson.getLessonStudent() + "\nProfessor: " +
                         lesson.getLessonTeacher();
                 ((TextView) view.findViewById(android.R.id.text2)).setText(subtitle);
@@ -215,7 +218,7 @@ public class FirebaseUtils {
         final ArrayList<CharSequence> teachersList = new ArrayList<>();
         teachersList.add("");
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Teacher");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Teachers");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

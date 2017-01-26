@@ -123,11 +123,20 @@ public class LessonFormActivity extends AppCompatActivity {
         ArrayList<CharSequence> studentsList = FirebaseUtils.getStudentsList();
 
         ArrayAdapter<CharSequence> studentAdapter = new ArrayAdapter<>(getApplicationContext(),
-                android.R.layout.simple_spinner_dropdown_item, studentsList);
-        studentAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                R.layout.spinner_item, studentsList);
 
         Spinner studentSpinner = (Spinner) findViewById(R.id.spinnerLessonStudent);
         studentSpinner.setAdapter(studentAdapter);
+    }
+
+    private void setUpTeacherSpinner() {
+        ArrayList<CharSequence> teachersList = FirebaseUtils.getTeachersList();
+
+        ArrayAdapter<CharSequence> teacherAdapter = new ArrayAdapter<>(getApplicationContext(),
+                R.layout.spinner_item, teachersList);
+
+        Spinner teacherSpinner = (Spinner) findViewById(R.id.spinnerLessonTeacher);
+        teacherSpinner.setAdapter(teacherAdapter);
     }
 
     private void setUpDatePicker() {
@@ -192,16 +201,5 @@ public class LessonFormActivity extends AppCompatActivity {
                     }
                 }
         );
-    }
-
-    private void setUpTeacherSpinner() {
-        ArrayList<CharSequence> teachersList = FirebaseUtils.getTeachersList();
-
-        ArrayAdapter<CharSequence> teacherAdapter = new ArrayAdapter<>(getApplicationContext(),
-                android.R.layout.simple_spinner_dropdown_item, teachersList);
-        teacherAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        Spinner teacherSpinner = (Spinner) findViewById(R.id.spinnerLessonTeacher);
-        teacherSpinner.setAdapter(teacherAdapter);
     }
 }

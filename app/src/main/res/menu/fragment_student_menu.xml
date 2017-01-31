@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Ordenar por ordem de criação"
+        android:showAsAction="never"
+        android:id="@+id/item_order_student_by_creation"/>
+    <item android:title="Ordenar por ordem alfabética"
+        android:showAsAction="never"
+        android:id="@+id/item_order_student_by_name"/>
+</menu>

@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.GridLayout;
+import android.widget.ListAdapter;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -235,5 +236,19 @@ public class FirebaseUtils {
         });
 
         return teachersList;
+    }
+
+    public static FirebaseListAdapter<Student> orderListOfStudentsByName(FragmentActivity fragmentActivity) {
+        FirebaseListAdapter<Student> adapter = new FirebaseListAdapter<Student>(fragmentActivity, Student.class,
+                android.R.layout.two_line_list_item,
+                databaseReference.child("Students").orderByChild("studentName")) {
+            @Override
+            protected void populateView(View view, Student student, int position) {
+                ((TextView) view.findViewById(android.R.id.text1)).setText(student.getStudentName());
+                ((TextView) view.findViewById(android.R.id.text2)).setText(student.getStudentParentName());
+            }
+        };
+
+        return adapter;
     }
 }

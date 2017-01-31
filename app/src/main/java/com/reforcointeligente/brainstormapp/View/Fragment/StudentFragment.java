@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -27,6 +30,8 @@ public class StudentFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.student_fragment, container, false);
+
+        setHasOptionsMenu(true);
 
         listStudent = (ListView) rootView.findViewById(R.id.list_student);
 
@@ -69,4 +74,23 @@ public class StudentFragment extends Fragment {
         return new StudentFragment();
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.fragment_student_menu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.item_order_student_by_creation:
+                listStudent.setAdapter(FirebaseUtils.loadStudents(getActivity()));
+                break;
+            case R.id.item_order_student_by_name:
+                listStudent.setAdapter(FirebaseUtils.orderListOfStudentsByName(getActivity()));
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 }

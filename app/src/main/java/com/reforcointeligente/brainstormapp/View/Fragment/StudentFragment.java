@@ -89,6 +89,9 @@ public class StudentFragment extends Fragment {
             case R.id.item_order_student_by_name:
                 listStudent.setAdapter(FirebaseUtils.orderListOfStudentsByName(getActivity()));
                 break;
+            case R.id.item_order_student_by_parent:
+                listStudent.setAdapter(FirebaseUtils.orderListOfStudentsByParent(getActivity()));
+                break;
         }
 
         return super.onOptionsItemSelected(item);

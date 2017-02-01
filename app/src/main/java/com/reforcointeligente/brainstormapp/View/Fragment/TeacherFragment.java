@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -26,6 +29,7 @@ public class TeacherFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.teacher_fragment, container, false);
+        setHasOptionsMenu(true);
 
         listTeacher = (ListView) rootView.findViewById(R.id.list_teacher);
 
@@ -61,8 +65,30 @@ public class TeacherFragment extends Fragment{
         listTeacher.setAdapter(FirebaseUtils.loadTeachers(getActivity()));
     }
 
-
     public static TeacherFragment newInstance() {
         return new TeacherFragment();
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.fragment_teacher_menu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.item_order_teacher_by_creation:
+                listTeacher.setAdapter(FirebaseUtils.loadTeachers(getActivity()));
+                break;
+            case R.id.item_order_teacher_by_name:
+                listTeacher.setAdapter(FirebaseUtils.orderListOfTeachersByName(getActivity()));
+                break;
+            case R.id.item_order_teacher_by_course:
+                listTeacher.setAdapter(FirebaseUtils.orderListOfTeachersByCourse(getActivity()));
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

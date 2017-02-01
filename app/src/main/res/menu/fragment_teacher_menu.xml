@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
+    
     <item android:title="Ordenar por ordem de criação"
         android:showAsAction="never"
-        android:id="@+id/item_order_student_by_creation"/>
+        android:id="@+id/item_order_teacher_by_creation"/>
     <item android:title="Ordenar por ordem alfabética"
         android:showAsAction="never"
-        android:id="@+id/item_order_student_by_name"/>
-    <item android:title="Ordenar pelo nome do pai"
+        android:id="@+id/item_order_teacher_by_name"/>
+    <item android:title="Ordenar pelo nome do curso"
         android:showAsAction="never"
-        android:id="@+id/item_order_student_by_parent"/>
+        android:id="@+id/item_order_teacher_by_course"/>
 </menu>

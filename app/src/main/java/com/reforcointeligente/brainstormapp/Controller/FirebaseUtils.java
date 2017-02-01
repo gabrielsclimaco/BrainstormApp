@@ -251,4 +251,46 @@ public class FirebaseUtils {
 
         return adapter;
     }
+
+    public static FirebaseListAdapter<Student> orderListOfStudentsByParent(FragmentActivity fragmentActivity) {
+        FirebaseListAdapter<Student> adapter = new FirebaseListAdapter<Student>(fragmentActivity, Student.class,
+                android.R.layout.two_line_list_item,
+                databaseReference.child("Students").orderByChild("studentParentName")) {
+            @Override
+            protected void populateView(View view, Student student, int position) {
+                ((TextView) view.findViewById(android.R.id.text1)).setText(student.getStudentName());
+                ((TextView) view.findViewById(android.R.id.text2)).setText(student.getStudentParentName());
+            }
+        };
+
+        return adapter;
+    }
+
+    public static FirebaseListAdapter<Teacher> orderListOfTeachersByName(FragmentActivity fragmentActivity) {
+        FirebaseListAdapter<Teacher> adapter = new FirebaseListAdapter<Teacher>(fragmentActivity, Teacher.class,
+                android.R.layout.two_line_list_item,
+                databaseReference.child("Teachers").orderByChild("teacherName")) {
+            @Override
+            protected void populateView(View view, Teacher teacher, int position) {
+                ((TextView) view.findViewById(android.R.id.text1)).setText(teacher.getTeacherName());
+                ((TextView) view.findViewById(android.R.id.text2)).setText(teacher.getTeacherCourse());
+            }
+        };
+
+        return adapter;
+    }
+
+    public static FirebaseListAdapter<Teacher> orderListOfTeachersByCourse(FragmentActivity fragmentActivity) {
+        FirebaseListAdapter<Teacher> adapter = new FirebaseListAdapter<Teacher>(fragmentActivity, Teacher.class,
+                android.R.layout.two_line_list_item,
+                databaseReference.child("Teachers").orderByChild("teacherCourse")) {
+            @Override
+            protected void populateView(View view, Teacher teacher, int position) {
+                ((TextView) view.findViewById(android.R.id.text1)).setText(teacher.getTeacherName());
+                ((TextView) view.findViewById(android.R.id.text2)).setText(teacher.getTeacherCourse());
+            }
+        };
+
+        return adapter;
+    }
 }

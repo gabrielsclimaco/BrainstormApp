@@ -293,4 +293,55 @@ public class FirebaseUtils {
 
         return adapter;
     }
+
+    public static FirebaseListAdapter<Lesson> orderListOfLessonsByDate(FragmentActivity fragmentActivity) {
+        FirebaseListAdapter<Lesson> adapter = new FirebaseListAdapter<Lesson>(fragmentActivity, Lesson.class,
+                android.R.layout.two_line_list_item,
+                databaseReference.child("Lessons").orderByChild("lessonDate")) {
+            @Override
+            protected void populateView(View view, Lesson lesson, int position) {
+                String title = lesson.getLessonDate() + " - " + lesson.getLessonTime();
+                ((TextView) view.findViewById(android.R.id.text1)).setText(title);
+                String subtitle = "Aluno: " + lesson.getLessonStudent() + "\nProfessor: " +
+                        lesson.getLessonTeacher();
+                ((TextView) view.findViewById(android.R.id.text2)).setText(subtitle);
+            }
+        };
+
+        return adapter;
+    }
+
+    public static FirebaseListAdapter<Lesson> orderListOfLessonsByStudentName(FragmentActivity fragmentActivity) {
+        FirebaseListAdapter<Lesson> adapter = new FirebaseListAdapter<Lesson>(fragmentActivity, Lesson.class,
+                android.R.layout.two_line_list_item,
+                databaseReference.child("Lessons").orderByChild("lessonStudent")) {
+            @Override
+            protected void populateView(View view, Lesson lesson, int position) {
+                String title = lesson.getLessonDate() + " - " + lesson.getLessonTime();
+                ((TextView) view.findViewById(android.R.id.text1)).setText(title);
+                String subtitle = "Aluno: " + lesson.getLessonStudent() + "\nProfessor: " +
+                        lesson.getLessonTeacher();
+                ((TextView) view.findViewById(android.R.id.text2)).setText(subtitle);
+            }
+        };
+
+        return adapter;
+    }
+
+    public static FirebaseListAdapter<Lesson> orderListOfLessonsByTeacherName(FragmentActivity fragmentActivity) {
+        FirebaseListAdapter<Lesson> adapter = new FirebaseListAdapter<Lesson>(fragmentActivity, Lesson.class,
+                android.R.layout.two_line_list_item,
+                databaseReference.child("Lessons").orderByChild("lessonTeacher")) {
+            @Override
+            protected void populateView(View view, Lesson lesson, int position) {
+                String title = lesson.getLessonDate() + " - " + lesson.getLessonTime();
+                ((TextView) view.findViewById(android.R.id.text1)).setText(title);
+                String subtitle = "Aluno: " + lesson.getLessonStudent() + "\nProfessor: " +
+                        lesson.getLessonTeacher();
+                ((TextView) view.findViewById(android.R.id.text2)).setText(subtitle);
+            }
+        };
+
+        return adapter;
+    }
 }

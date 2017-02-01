@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Ordenar por ordem de criação"
+        android:showAsAction="never"
+        android:id="@+id/item_order_lesson_by_creation"/>
+    <item android:title="Ordenar por data"
+        android:showAsAction="never"
+        android:id="@+id/item_order_lesson_by_date"/>
+    <item android:title="Ordenar por nome do aluno"
+        android:showAsAction="never"
+        android:id="@+id/item_order_lesson_by_student_name"/>
+    <item android:title="Ordenar pelo nome do professor"
+        android:showAsAction="never"
+        android:id="@+id/item_order_lesson_by_teacher_name"/>
+</menu>

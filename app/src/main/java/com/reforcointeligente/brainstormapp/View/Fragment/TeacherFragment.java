@@ -3,6 +3,7 @@ package com.reforcointeligente.brainstormapp.View.Fragment;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -14,6 +15,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.reforcointeligente.brainstormapp.Controller.FirebaseUtils;
+import com.reforcointeligente.brainstormapp.Model.Student;
 import com.reforcointeligente.brainstormapp.Model.Teacher;
 import com.reforcointeligente.brainstormapp.R;
 import com.reforcointeligente.brainstormapp.View.Forms.TeacherFormActivity;
@@ -32,6 +34,8 @@ public class TeacherFragment extends Fragment{
         setHasOptionsMenu(true);
 
         listTeacher = (ListView) rootView.findViewById(R.id.list_teacher);
+//        registerForContextMenu(listTeacher);
+        listTeacher.setOnCreateContextMenuListener(this);
 
         listTeacher.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -61,7 +65,7 @@ public class TeacherFragment extends Fragment{
     public void onResume() {
         super.onResume();
 
-        // loading list of steacher
+        // loading list of teachers
         listTeacher.setAdapter(FirebaseUtils.loadTeachers(getActivity()));
     }
 
@@ -91,4 +95,29 @@ public class TeacherFragment extends Fragment{
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        MenuInflater menuInflater = getActivity().getMenuInflater();
+        String teacherName = ((Teacher) listTeacher.getItemAtPosition(((
+                AdapterView.AdapterContextMenuInfo) menuInfo).position)).getTeacherName();
+        menu.setHeaderTitle(teacherName);
+        menuInflater.inflate(R.menu.selected_item_menu, menu);
+        super.onCreateContextMenu(menu, v, menuInfo);
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+
+        switch (item.getItemId()) {
+            case R.id.exclude_item:
+                FirebaseUtils.excludeTeacher((Teacher) listTeacher.getItemAtPosition(info.position));
+                break;
+        }
+
+        return super.onContextItemSelected(item);
+    }
+
+
 }

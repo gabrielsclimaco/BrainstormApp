@@ -4,6 +4,7 @@ package com.reforcointeligente.brainstormapp.View.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -30,7 +31,6 @@ public class StudentFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.student_fragment, container, false);
-
         setHasOptionsMenu(true);
 
         listStudent = (ListView) rootView.findViewById(R.id.list_student);
@@ -66,7 +66,7 @@ public class StudentFragment extends Fragment {
     public void onResume() {
         super.onResume();
 
-        // loading list of student
+        // loading list of students
         listStudent.setAdapter(FirebaseUtils.loadStudents(getActivity()));
     }
 
@@ -95,5 +95,28 @@ public class StudentFragment extends Fragment {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        MenuInflater menuInflater = getActivity().getMenuInflater();
+        String studentName = ((Student) listStudent.getItemAtPosition(((
+                AdapterView.AdapterContextMenuInfo) menuInfo).position)).getStudentName();
+        menu.setHeaderTitle(studentName);
+        menuInflater.inflate(R.menu.selected_item_menu, menu);
+        super.onCreateContextMenu(menu, v, menuInfo);
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+
+        switch (item.getItemId()) {
+            case R.id.exclude_item:
+                FirebaseUtils.excludeStudent((Student) listStudent.getItemAtPosition(info.position));
+                break;
+        }
+
+        return super.onContextItemSelected(item);
     }
 }

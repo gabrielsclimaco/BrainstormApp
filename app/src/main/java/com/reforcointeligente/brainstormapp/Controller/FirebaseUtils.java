@@ -196,8 +196,8 @@ public class FirebaseUtils {
         final ArrayList<CharSequence> studentsList = new ArrayList<>();
         studentsList.add("");
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Students");
-        reference.addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference().child("Students").orderByChild("studentName")
+        .addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot studentSnapshot: dataSnapshot.getChildren()) {
@@ -343,5 +343,62 @@ public class FirebaseUtils {
         };
 
         return adapter;
+    }
+
+    public static void excludeStudent(final Student student) {
+        databaseReference.child("Students").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot students: dataSnapshot.getChildren()) {
+                    if (student.getStudentName().equals(students.getValue(Student.class).getStudentName())) {
+                        students.getRef().removeValue();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    public static void excludeLesson(final Lesson lesson) {
+        databaseReference.child("Lessons").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot lessons: dataSnapshot.getChildren()) {
+                    if (lesson.getLessonDate().equals(lessons.getValue(Lesson.class).getLessonDate())
+                            && lesson.getLessonTime().equals(lessons.getValue(Lesson.class).getLessonTime())
+                            && lesson.getLessonStudent().equals(lessons.getValue(Lesson.class).getLessonStudent())
+                            && lesson.getLessonTeacher().equals(lessons.getValue(Lesson.class).getLessonTeacher())) {
+                        lessons.getRef().removeValue();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    public static void excludeTeacher(final Teacher teacher) {
+        databaseReference.child("Teachers").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot teachers: dataSnapshot.getChildren()) {
+                    if (teacher.getTeacherName().equals(teachers.getValue(Teacher.class).getTeacherName())) {
+                        teachers.getRef().removeValue();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 }

@@ -1,8 +1,9 @@
 package com.reforcointeligente.brainstormapp.Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Lesson {
+public class Lesson implements Serializable {
     private String lessonDate;
     private String lessonTime;
     private String lessonTeacher;

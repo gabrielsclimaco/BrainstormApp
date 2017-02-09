@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_select_lesson"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.reforcointeligente.brainstormapp.View.SelectedObject.SelectedLessonActivity">
+
+    <TextView
+        android:text="Dados da aula"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:id="@+id/textViewTitleLessonSelected"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Data: "
+        android:textStyle="bold"
+        android:paddingTop="12sp"
+        android:layout_below="@id/textViewTitleLessonSelected"
+        android:id="@+id/lesson_date_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12sp"
+        android:layout_below="@id/textViewTitleLessonSelected"
+        android:layout_toRightOf="@id/lesson_date_label"
+        android:id="@+id/lesson_date_text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Horário: "
+        android:textStyle="bold"
+        android:paddingTop="12sp"
+        android:layout_below="@id/lesson_date_label"
+        android:id="@+id/lesson_time_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12sp"
+        android:layout_below="@id/lesson_date_label"
+        android:layout_toRightOf="@id/lesson_time_label"
+        android:id="@+id/lesson_time_text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Professor: "
+        android:textStyle="bold"
+        android:paddingTop="12sp"
+        android:layout_below="@id/lesson_time_label"
+        android:id="@+id/lesson_teacher_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12sp"
+        android:layout_below="@id/lesson_time_label"
+        android:layout_toRightOf="@id/lesson_teacher_label"
+        android:id="@+id/lesson_teacher_text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aluno: "
+        android:textStyle="bold"
+        android:paddingTop="12sp"
+        android:layout_below="@id/lesson_teacher_label"
+        android:id="@+id/lesson_student_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12sp"
+        android:layout_below="@id/lesson_teacher_label"
+        android:layout_toRightOf="@id/lesson_student_label"
+        android:id="@+id/lesson_student_text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Matéria(s): "
+        android:textStyle="bold"
+        android:paddingTop="12sp"
+        android:layout_below="@id/lesson_student_label"
+        android:id="@+id/lesson_subject_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12sp"
+        android:layout_below="@id/lesson_student_label"
+        android:layout_toRightOf="@id/lesson_subject_label"
+        android:id="@+id/lesson_subject_text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Local: "
+        android:textStyle="bold"
+        android:paddingTop="12sp"
+        android:layout_below="@id/lesson_subject_label"
+        android:id="@+id/lesson_place_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12sp"
+        android:layout_below="@id/lesson_subject_label"
+        android:layout_toRightOf="@id/lesson_place_label"
+        android:id="@+id/lesson_place_text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Deslocamento: "
+        android:textStyle="bold"
+        android:paddingTop="12sp"
+        android:layout_below="@id/lesson_place_label"
+        android:id="@+id/lesson_displacement_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="R$ "
+        android:paddingTop="12sp"
+        android:layout_below="@+id/lesson_place_label"
+        android:layout_toRightOf="@+id/lesson_displacement_label"
+        android:id="@+id/lesson_cipher1"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12sp"
+        android:layout_below="@id/lesson_place_label"
+        android:layout_toRightOf="@id/lesson_cipher1"
+        android:id="@+id/lesson_displacement_text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Valor da hora/aula: "
+        android:textStyle="bold"
+        android:paddingTop="12sp"
+        android:layout_below="@id/lesson_displacement_label"
+        android:id="@+id/lesson_valuePerHour_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="R$ "
+        android:paddingTop="12sp"
+        android:layout_below="@+id/lesson_displacement_label"
+        android:layout_toRightOf="@+id/lesson_valuePerHour_label"
+        android:id="@+id/lesson_cipher2"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12sp"
+        android:layout_below="@id/lesson_displacement_label"
+        android:layout_toRightOf="@id/lesson_cipher2"
+        android:id="@+id/lesson_valuePerHour_text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Horas de aula: "
+        android:textStyle="bold"
+        android:paddingTop="12sp"
+        android:layout_below="@id/lesson_valuePerHour_label"
+        android:id="@+id/lesson_duration_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12sp"
+        android:layout_below="@id/lesson_valuePerHour_label"
+        android:layout_toRightOf="@id/lesson_duration_label"
+        android:id="@+id/lesson_duration_text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Valor total: "
+        android:textStyle="bold"
+        android:paddingTop="12sp"
+        android:layout_below="@id/lesson_duration_label"
+        android:id="@+id/lesson_totalValue_label"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="R$ "
+        android:paddingTop="12sp"
+        android:layout_below="@+id/lesson_duration_label"
+        android:layout_toRightOf="@+id/lesson_totalValue_label"
+        android:id="@+id/lesson_cipher3"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="12sp"
+        android:layout_below="@id/lesson_duration_label"
+        android:layout_toRightOf="@id/lesson_cipher3"
+        android:id="@+id/lesson_totalValue_text"/>
+
+
+</RelativeLayout>
+

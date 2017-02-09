@@ -8,6 +8,8 @@ import android.widget.TextView;
 import com.reforcointeligente.brainstormapp.Model.Teacher;
 import com.reforcointeligente.brainstormapp.R;
 
+import java.util.List;
+
 public class SelectedTeacherActivity extends AppCompatActivity {
 
     @Override
@@ -36,9 +38,18 @@ public class SelectedTeacherActivity extends AppCompatActivity {
         setBooleanText((TextView) findViewById(R.id.teacher_car_text), teacher.getTeacherCar());
         setStringText((TextView) findViewById(R.id.teacher_pricePerHour_text), teacher.getPricePerHour().toString()+"0");
         setStringText((TextView) findViewById(R.id.teacher_email_text), teacher.getTeacherEmail());
-        setStringText((TextView) findViewById(R.id.teacher_subjects_text), teacher.getTeacherSubjects().toString());
+        setSubjectText((TextView) findViewById(R.id.teacher_subjects_text), teacher.getTeacherSubjects());
+
 
         ((TextView) findViewById(R.id.teacher_valueToPay_text)).setText(teacher.getTeacherValueToPay().toString());
+    }
+
+    private void setSubjectText(TextView teacherSubjectsTextView, List<String> teacherSubjects) {
+        if (teacherSubjects == null) {
+            teacherSubjectsTextView.setText("Não consta");
+        } else {
+            teacherSubjectsTextView.setText(teacherSubjects.toString());
+        }
     }
 
     private void setStringText(TextView textView, String text) {

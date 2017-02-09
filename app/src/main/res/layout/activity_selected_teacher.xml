@@ -17,7 +17,6 @@
         android:layout_height="wrap_content"
         android:textSize="20dp"
         android:gravity="center"
-        android:layout_alignParentLeft="true"
         android:id="@+id/textViewTitleTeacherSelected"
         android:textStyle="bold"
         android:layout_centerHorizontal="true" />

@@ -16,8 +16,10 @@ import android.widget.ListView;
 import com.reforcointeligente.brainstormapp.Controller.FirebaseUtils;
 import com.reforcointeligente.brainstormapp.Model.Lesson;
 import com.reforcointeligente.brainstormapp.Model.Teacher;
+import com.reforcointeligente.brainstormapp.Model.Lesson;
 import com.reforcointeligente.brainstormapp.R;
 import com.reforcointeligente.brainstormapp.View.Forms.LessonFormActivity;
+import com.reforcointeligente.brainstormapp.View.SelectedObject.SelectedLessonActivity;
 
 public class LessonFragment extends Fragment{
     private ListView listLesson;
@@ -39,6 +41,17 @@ public class LessonFragment extends Fragment{
             public void onClick(View v) {
                 Intent lessonFormActivity = new Intent(getActivity(), LessonFormActivity.class);
                 getActivity().startActivity(lessonFormActivity);
+            }
+        });
+
+        listLesson.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> lista, View item, int position, long id) {
+                Lesson lesson = (Lesson) listLesson.getItemAtPosition(position);
+
+                Intent goToSelectedLesson = new Intent(getContext(), SelectedLessonActivity.class);
+                goToSelectedLesson.putExtra("lesson", lesson);
+                startActivity(goToSelectedLesson);
             }
         });
 

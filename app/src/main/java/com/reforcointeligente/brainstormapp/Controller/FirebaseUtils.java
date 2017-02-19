@@ -1,5 +1,6 @@
 package com.reforcointeligente.brainstormapp.Controller;
 
+import android.app.Activity;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
@@ -21,8 +22,11 @@ import com.reforcointeligente.brainstormapp.Model.Student;
 import com.reforcointeligente.brainstormapp.Model.Lesson;
 import com.reforcointeligente.brainstormapp.Model.Teacher;
 import com.reforcointeligente.brainstormapp.R;
+import com.reforcointeligente.brainstormapp.View.Forms.StudentFormActivity;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class FirebaseUtils {
@@ -400,5 +404,72 @@ public class FirebaseUtils {
 
             }
         });
+    }
+
+    public static void fillWithStudentInfo(Student student, Activity activity) {
+        EditText nameField = (EditText) activity.findViewById(R.id.editTextStudentName);
+        nameField.setText(student.getStudentName());
+
+        EditText ageField = (EditText) activity.findViewById(R.id.editTextStudentAge);
+        ageField.setText(student.getStudentAge().toString());
+
+        EditText schoolField = (EditText) activity.findViewById(R.id.editTextStudentSchool);
+        schoolField.setText(student.getStudentSchool());
+
+        EditText schoolYearField = (EditText) activity.findViewById(R.id.editTextStudentSchoolYear);
+        schoolYearField.setText(student.getStudentSchoolYear());
+
+        EditText addressField = (EditText) activity.findViewById(R.id.editTextStudentAddress);
+        addressField.setText(student.getStudentAddress());
+
+        Spinner cityField = (Spinner) activity.findViewById(R.id.spinnerStudentCity);
+        String[] cities = activity.getResources().getStringArray(R.array.list_df_cities);
+        cityField.setSelection(Arrays.asList(cities).indexOf(student.getStudentCity()));
+
+        EditText parentNameField = (EditText) activity.findViewById(R.id.editTextStudentParentName);
+        parentNameField.setText(student.getStudentParentName());
+
+        EditText parentCellphoneField = (EditText) activity.findViewById(R.id.editTextStudentParentCellphone);
+        parentCellphoneField.setText(student.getStudentParentCellphone());
+
+        EditText parentPhoneField = (EditText) activity.findViewById(R.id.editTextStudentParentPhone);
+        parentPhoneField.setText(student.getStudentParentPhone());
+
+        EditText parentEmailField = (EditText) activity.findViewById(R.id.editTextStudentParentEmail);
+        parentEmailField.setText(student.getStudentParentEmail());
+
+    }
+
+    public static void fillWithTeacherInfo(Teacher teacher, Activity activity) {
+        EditText nameField = (EditText) activity.findViewById(R.id.editTextTeacherName);
+        nameField.setText(teacher.getTeacherName());
+
+        EditText addressField = (EditText) activity.findViewById(R.id.editTextTeacherAddress);
+        addressField.setText(teacher.getTeacherAddress());
+
+        Spinner cityField = (Spinner) activity.findViewById(R.id.spinnerTeacherCity);
+        String[] cities = activity.getResources().getStringArray(R.array.list_df_cities);
+        cityField.setSelection(Arrays.asList(cities).indexOf(teacher.getTeacherCity()));
+
+        EditText courseField = (EditText) activity.findViewById(R.id.editTextTeacherCourse);
+        courseField.setText(teacher.getTeacherCourse());
+
+        EditText phoneField = (EditText) activity.findViewById(R.id.editTextTeacherPhone);
+        phoneField.setText(teacher.getTeacherPhone());
+
+        EditText cellphoneField = (EditText) activity.findViewById(R.id.editTextTeacherCellphone);
+        cellphoneField.setText(teacher.getTeacherCellphone());
+
+        //carro boolean
+
+        //valor da hora aula
+
+        EditText emailField = (EditText) activity.findViewById(R.id.editTextTeacherEmail);
+        emailField.setText(teacher.getTeacherEmail());
+
+        //materias array
+
+        //total a receber?
+        
     }
 }

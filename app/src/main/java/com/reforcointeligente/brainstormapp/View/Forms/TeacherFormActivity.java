@@ -1,7 +1,9 @@
 package com.reforcointeligente.brainstormapp.View.Forms;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -28,6 +30,7 @@ public class TeacherFormActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_form);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         teacherPhone = (EditText) findViewById(R.id.editTextTeacherPhone);
         teacherCellphone = (EditText) findViewById(R.id.editTextTeacherCellphone);
@@ -40,6 +43,24 @@ public class TeacherFormActivity extends AppCompatActivity {
         listenButtonClickEvents();
 
         ((RadioButton) findViewById(R.id.radioButtonNo)).setChecked(true);
+
+        Intent intent = getIntent();
+        Teacher teacher= (Teacher) intent.getSerializableExtra("teacher");
+
+        if(teacher != null) {
+            FirebaseUtils.fillWithTeacherInfo(teacher, this);
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void maskMoneyFields() {

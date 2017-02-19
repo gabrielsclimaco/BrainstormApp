@@ -1,9 +1,11 @@
 package com.reforcointeligente.brainstormapp.View.Forms;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.telephony.PhoneNumberUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -29,6 +31,7 @@ public class StudentFormActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_form);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         parentPhone = (EditText) findViewById(R.id.editTextStudentParentPhone);
         parentCellphone = (EditText) findViewById(R.id.editTextStudentParentCellphone);
@@ -38,6 +41,24 @@ public class StudentFormActivity extends AppCompatActivity {
         maskPhoneNumbers();
 
         listenButtonClickEvents();
+
+        Intent intent = getIntent();
+        Student student = (Student) intent.getSerializableExtra("student");
+
+        if(student != null) {
+            FirebaseUtils.fillWithStudentInfo(student, this);
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void maskPhoneNumbers() {

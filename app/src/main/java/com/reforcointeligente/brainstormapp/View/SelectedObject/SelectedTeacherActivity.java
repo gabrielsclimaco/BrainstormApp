@@ -3,6 +3,7 @@ package com.reforcointeligente.brainstormapp.View.SelectedObject;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.reforcointeligente.brainstormapp.Model.Teacher;
@@ -16,6 +17,7 @@ public class SelectedTeacherActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selected_teacher);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
@@ -23,6 +25,17 @@ public class SelectedTeacherActivity extends AppCompatActivity {
         super.onResume();
 
         setTextFields();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void setTextFields() {

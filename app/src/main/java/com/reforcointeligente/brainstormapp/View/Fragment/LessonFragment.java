@@ -113,6 +113,12 @@ public class LessonFragment extends Fragment{
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
 
         switch (item.getItemId()) {
+            case R.id.edit_item:
+                Lesson lesson = (Lesson) listLesson.getItemAtPosition(info.position);
+                Intent goToEditLesson = new Intent(getContext(), LessonFormActivity.class);
+                goToEditLesson.putExtra("lesson", lesson);
+                startActivity(goToEditLesson);
+                break;
             case R.id.exclude_item_teacher:
                 FirebaseUtils.excludeLesson((Lesson) listLesson.getItemAtPosition(info.position));
                 break;

@@ -30,7 +30,8 @@
         <activity android:name=".View.Forms.TeacherFormActivity" />
         <activity android:name=".View.Forms.StudentFormActivity" />
         <activity android:name=".View.SelectedObject.SelectedStudentActivity" />
-        <activity android:name=".View.SelectedObject.SelectedTeacherActivity"></activity>
+        <activity android:name=".View.SelectedObject.SelectedTeacherActivity" />
+        <activity android:name=".View.SelectedObject.SelectedLessonActivity"></activity>
     </application>
 
 </manifest>

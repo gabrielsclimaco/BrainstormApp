@@ -112,6 +112,12 @@ public class StudentFragment extends Fragment {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
 
         switch (item.getItemId()) {
+            case R.id.edit_item:
+                Student student = (Student) listStudent.getItemAtPosition(info.position);
+                Intent goToEditStudent = new Intent(getContext(), StudentFormActivity.class);
+                goToEditStudent.putExtra("student", student);
+                startActivity(goToEditStudent);
+                break;
             case R.id.exclude_item:
                 FirebaseUtils.excludeStudent((Student) listStudent.getItemAtPosition(info.position));
                 break;

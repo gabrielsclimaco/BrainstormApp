@@ -160,7 +160,7 @@
                 android:textSize="16dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="3dp"
-                android:layout_below="@+id/editTextTeacherValuePerHour" />
+                android:layout_below="@+id/editTextTeacherPricePerHour" />
 
             <GridLayout
                 android:layout_width="match_parent"

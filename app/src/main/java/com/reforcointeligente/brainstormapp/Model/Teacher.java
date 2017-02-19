@@ -94,11 +94,11 @@ public class Teacher implements Serializable{
         this.teacherCar = teacherCar;
     }
 
-    public Double getPricePerHour() {
+    public Double getTeacherPricePerHour() {
         return pricePerHour;
     }
 
-    public void setPricePerHour(Double pricePerHour) {
+    public void setTeacherPricePerHour(Double pricePerHour) {
         this.pricePerHour = pricePerHour;
     }
 

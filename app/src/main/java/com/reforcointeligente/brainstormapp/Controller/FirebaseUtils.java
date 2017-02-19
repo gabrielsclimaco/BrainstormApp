@@ -462,7 +462,8 @@ public class FirebaseUtils {
 
         //carro boolean
 
-        //valor da hora aula
+        EditText pricePerHourField = (EditText) activity.findViewById(R.id.editTextTeacherValuePerHour);
+        pricePerHourField.setText(teacher.getTeacherPricePerHour().toString());
 
         EditText emailField = (EditText) activity.findViewById(R.id.editTextTeacherEmail);
         emailField.setText(teacher.getTeacherEmail());
@@ -470,6 +471,35 @@ public class FirebaseUtils {
         //materias array
 
         //total a receber?
-        
+
+    }
+
+    public static void fillWithLessonInfo(Lesson lesson, Activity activity) {
+        EditText dateField = (EditText) activity.findViewById(R.id.editTextLessonDate);
+        dateField.setText(lesson.getLessonDate());
+
+        EditText timeField = (EditText) activity.findViewById(R.id.editTextLessonTime);
+        timeField.setText(lesson.getLessonTime());
+
+        // professor
+
+        // aluno
+
+        // materias array
+
+        EditText placeField = (EditText) activity.findViewById(R.id.editTextLessonPlace);
+        placeField.setText(lesson.getLessonPlace());
+
+        EditText displacementField = (EditText) activity.findViewById(R.id.editTextLessonDisplacement);
+        displacementField.setText(lesson.getLessonDisplacement().toString());
+
+        EditText valuePerHourField = (EditText) activity.findViewById(R.id.editTextLessonValuePerHour);
+        valuePerHourField.setText(lesson.getLessonValuePerHour().toString());
+
+        EditText durationField = (EditText) activity.findViewById(R.id.editTextLessonDuration);
+        durationField.setText(lesson.getLessonDuration().toString());
+
+        // valor total
+
     }
 }

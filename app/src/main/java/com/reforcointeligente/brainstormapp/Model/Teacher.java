@@ -1,7 +1,11 @@
 package com.reforcointeligente.brainstormapp.Model;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.net.ssl.HandshakeCompletedEvent;
 
 public class Teacher implements Serializable{
 
@@ -124,6 +128,24 @@ public class Teacher implements Serializable{
 
     public void setTeacherValueToPay(Double teacherValueToPay) {
         this.teacherValueToPay = teacherValueToPay;
+    }
+
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap<>();
+
+        result.put("teacherName", teacherName);
+        result.put("teacherAddress", teacherAddress);
+        result.put("teacherCity", teacherCity);
+        result.put("teacherPhone", teacherPhone);
+        result.put("teacherCellphone", teacherCellphone);
+        result.put("teacherCourse", teacherCourse);
+        result.put("teacherCar", teacherCar);
+        result.put("pricePerHour", pricePerHour);
+        result.put("teacherEmail", teacherEmail);
+        result.put("teacherSubjects", teacherSubjects);
+        result.put("teacherValueToPay", teacherValueToPay);
+
+        return result;
     }
 }
 

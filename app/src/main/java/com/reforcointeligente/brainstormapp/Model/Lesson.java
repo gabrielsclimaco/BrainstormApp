@@ -110,16 +110,14 @@ public class Lesson implements Serializable {
     }
 
     private void setLessonTotalValue() {
-        lessonTotalValue = lessonValuePerHour * lessonDuration;
+        lessonTotalValue = lessonValuePerHour * lessonDuration + lessonDisplacement;
     }
 
     public Double getLessonProfit() {
-        setLessonProfit();
-
         return lessonProfit;
     }
 
-    private void setLessonProfit() {
-
+    public void setLessonProfit(Double profit) {
+        this.lessonProfit = profit;
     }
 }

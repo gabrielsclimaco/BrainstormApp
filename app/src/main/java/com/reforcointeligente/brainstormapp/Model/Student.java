@@ -1,6 +1,8 @@
 package com.reforcointeligente.brainstormapp.Model;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Student implements Serializable {
 
@@ -122,5 +124,23 @@ public class Student implements Serializable {
 
     public void setStudentDebt(Double studentDebt) {
         this.studentDebt = studentDebt;
+    }
+
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap<>();
+
+        result.put("studentName", studentName);
+        result.put("studentAge", studentAge);
+        result.put("studentAddress", studentAddress);
+        result.put("studentCity", studentCity);
+        result.put("studentSchoolYear", studentSchoolYear);
+        result.put("studentSchool", studentSchool);
+        result.put("studentParentName", studentParentName);
+        result.put("studentParentPhone", studentParentPhone);
+        result.put("studentParentCellphone", studentParentCellphone);
+        result.put("studentParentEmail", studentParentEmail);
+        result.put("studentDebt", studentDebt);
+
+        return result;
     }
 }

@@ -27,7 +27,11 @@ import com.reforcointeligente.brainstormapp.View.Forms.StudentFormActivity;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.StringTokenizer;
 
 public class FirebaseUtils {
     private static DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -103,9 +107,83 @@ public class FirebaseUtils {
 
         Lesson lessonToSave = new Lesson(date, time, teacherName, studentName, lessonSubjects,
                 place, displacement, valuePerHour, duration);
+        lessonToSave = setLessonValuesAndDoCharges(lessonToSave);
 
         databaseReference.child("Lessons").push().setValue(lessonToSave);
 
+    }
+
+    private static Lesson setLessonValuesAndDoCharges(Lesson lesson) {
+        final Double totalLessonValue = lesson.getLessonTotalValue();
+
+        chargeStudent(lesson, totalLessonValue);
+        lesson = payTeacher(lesson, totalLessonValue);
+
+        return lesson;
+    }
+
+    private static Lesson payTeacher(final Lesson lesson, final Double totalLessonValue) {
+//        final ArrayList<Double> profit = new ArrayList<>();
+//        profit.add(0.0);
+
+        FirebaseDatabase.getInstance().getReference().child("Teachers").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot teacherSnapshot : dataSnapshot.getChildren()) {
+                    Teacher teacher = teacherSnapshot.getValue(Teacher.class);
+                    if (teacher.getTeacherName().toUpperCase().trim()
+                            .equals(lesson.getLessonTeacher().toUpperCase().trim())) {
+                        Double previousPay = teacher.getTeacherValueToPay();
+                        Double toPayNow = teacher.getTeacherPricePerHour() * lesson.getLessonDuration()
+                                + lesson.getLessonDisplacement();
+                        lesson.setLessonProfit(lesson.getLessonTotalValue() - toPayNow);
+//                        profit.add(lesson.getLessonTotalValue() - toPayNow);
+
+
+                        teacher.setTeacherValueToPay(previousPay + toPayNow);
+                        Map<String, Object> postStudent = teacher.toMap();
+                        Map<String, Object> updateChildren = new HashMap<>();
+
+                        updateChildren.put("/Teachers/" + teacherSnapshot.getKey(), postStudent);
+                        databaseReference.updateChildren(updateChildren);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        return lesson;
+    }
+
+    private static void chargeStudent(final Lesson lesson, final Double totalLessonValue) {
+        FirebaseDatabase.getInstance().getReference().child("Students").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot studentSnapshot : dataSnapshot.getChildren()) {
+                    Student student = studentSnapshot.getValue(Student.class);
+                    if (student.getStudentName().toUpperCase().trim()
+                            .equals(lesson.getLessonStudent().toUpperCase().trim())) {
+                        Double previousDebt = student.getStudentDebt();
+
+                        student.setStudentDebt(previousDebt + totalLessonValue);
+                        Map<String, Object> postStudent = student.toMap();
+                        Map<String, Object> updateChildren = new HashMap<>();
+
+                        updateChildren.put("/Students/" + studentSnapshot.getKey(), postStudent);
+                        databaseReference.updateChildren(updateChildren);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     public static void saveTeacher(View view){

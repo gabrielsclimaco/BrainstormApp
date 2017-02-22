@@ -15,7 +15,6 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.reforcointeligente.brainstormapp.Controller.FirebaseUtils;
-import com.reforcointeligente.brainstormapp.Model.Student;
 import com.reforcointeligente.brainstormapp.Model.Teacher;
 import com.reforcointeligente.brainstormapp.R;
 import com.reforcointeligente.brainstormapp.View.Forms.TeacherFormActivity;
@@ -102,7 +101,7 @@ public class TeacherFragment extends Fragment{
         String teacherName = ((Teacher) listTeacher.getItemAtPosition(((
                 AdapterView.AdapterContextMenuInfo) menuInfo).position)).getTeacherName();
         menu.setHeaderTitle(teacherName);
-        menuInflater.inflate(R.menu.selected_item_menu, menu);
+        menuInflater.inflate(R.menu.selected_item_student, menu);
         super.onCreateContextMenu(menu, v, menuInfo);
     }
 

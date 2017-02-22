@@ -20,8 +20,6 @@ import com.reforcointeligente.brainstormapp.R;
 import com.reforcointeligente.brainstormapp.View.Forms.StudentFormActivity;
 import com.reforcointeligente.brainstormapp.View.SelectedObject.SelectedStudentActivity;
 
-import java.io.Serializable;
-
 public class StudentFragment extends Fragment {
     private ListView listStudent;
 
@@ -103,7 +101,7 @@ public class StudentFragment extends Fragment {
         String studentName = ((Student) listStudent.getItemAtPosition(((
                 AdapterView.AdapterContextMenuInfo) menuInfo).position)).getStudentName();
         menu.setHeaderTitle(studentName);
-        menuInflater.inflate(R.menu.selected_item_menu, menu);
+        menuInflater.inflate(R.menu.selected_item_student, menu);
         super.onCreateContextMenu(menu, v, menuInfo);
     }
 

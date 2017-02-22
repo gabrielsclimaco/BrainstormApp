@@ -54,6 +54,7 @@ public class SelectedLessonActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.lesson_valuePerHour_text)).setText(lesson.getLessonValuePerHour().toString());
         ((TextView) findViewById(R.id.lesson_duration_text)).setText(lesson.getLessonDuration().toString());
         ((TextView) findViewById(R.id.lesson_totalValue_text)).setText(lesson.getLessonTotalValue().toString());
+        ((TextView) findViewById(R.id.lesson_profit_text)).setText(lesson.getLessonProfit().toString());
     }
 
     private void setSubjectText(TextView lessonSubjectsTextView, ArrayList<String> lessonSubjects) {

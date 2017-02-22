@@ -15,8 +15,6 @@ import android.widget.Button;
 import android.widget.ListView;
 import com.reforcointeligente.brainstormapp.Controller.FirebaseUtils;
 import com.reforcointeligente.brainstormapp.Model.Lesson;
-import com.reforcointeligente.brainstormapp.Model.Teacher;
-import com.reforcointeligente.brainstormapp.Model.Lesson;
 import com.reforcointeligente.brainstormapp.R;
 import com.reforcointeligente.brainstormapp.View.Forms.LessonFormActivity;
 import com.reforcointeligente.brainstormapp.View.SelectedObject.SelectedLessonActivity;
@@ -104,7 +102,7 @@ public class LessonFragment extends Fragment{
                 ((Lesson) listLesson.getItemAtPosition(((
                         AdapterView.AdapterContextMenuInfo) menuInfo).position)).getLessonTime();
         menu.setHeaderTitle(lessonTitle);
-        menuInflater.inflate(R.menu.selected_item_teacher, menu);
+        menuInflater.inflate(R.menu.selected_item_lesson, menu);
         super.onCreateContextMenu(menu, v, menuInfo);
     }
 
@@ -113,13 +111,13 @@ public class LessonFragment extends Fragment{
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
 
         switch (item.getItemId()) {
-            case R.id.edit_item:
+            case R.id.edit_item_lesson:
                 Lesson lesson = (Lesson) listLesson.getItemAtPosition(info.position);
                 Intent goToEditLesson = new Intent(getContext(), LessonFormActivity.class);
                 goToEditLesson.putExtra("lesson", lesson);
                 startActivity(goToEditLesson);
                 break;
-            case R.id.exclude_item_teacher:
+            case R.id.exclude_item_lesson:
                 FirebaseUtils.excludeLesson((Lesson) listLesson.getItemAtPosition(info.position));
                 break;
         }

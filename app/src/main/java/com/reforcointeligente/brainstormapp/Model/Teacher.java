@@ -5,8 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.net.ssl.HandshakeCompletedEvent;
-
 public class Teacher implements Serializable{
 
     private String teacherName;
@@ -16,14 +14,14 @@ public class Teacher implements Serializable{
     private String teacherCellphone;
     private String teacherCourse;
     private Boolean teacherCar;
-    private Double pricePerHour;
+    private Double teacherPricePerHour;
     private String teacherEmail;
     private List<String> teacherSubjects;
     private Double teacherValueToPay;
 
     public Teacher(String teacherName, String teacherAddress, String teacherCity,
                    String teacherPhone, String teacherCellphone, String teacherCourse,
-                   Boolean teacherCar, Double pricePerHour, String teacherEmail,
+                   Boolean teacherCar, Double teacherPricePerHour, String teacherEmail,
                    List<String> teacherSubjects, Double teacherValueToPay) {
         this.teacherName = teacherName;
         this.teacherAddress = teacherAddress;
@@ -32,7 +30,7 @@ public class Teacher implements Serializable{
         this.teacherCellphone = teacherCellphone;
         this.teacherCourse = teacherCourse;
         this.teacherCar = teacherCar;
-        this.pricePerHour = pricePerHour;
+        this.teacherPricePerHour = teacherPricePerHour;
         this.teacherEmail = teacherEmail;
         this.teacherSubjects = teacherSubjects;
         this.teacherValueToPay = teacherValueToPay;
@@ -99,11 +97,11 @@ public class Teacher implements Serializable{
     }
 
     public Double getTeacherPricePerHour() {
-        return pricePerHour;
+        return teacherPricePerHour;
     }
 
     public void setTeacherPricePerHour(Double pricePerHour) {
-        this.pricePerHour = pricePerHour;
+        this.teacherPricePerHour = pricePerHour;
     }
 
     public String getTeacherEmail() {
@@ -140,7 +138,7 @@ public class Teacher implements Serializable{
         result.put("teacherCellphone", teacherCellphone);
         result.put("teacherCourse", teacherCourse);
         result.put("teacherCar", teacherCar);
-        result.put("pricePerHour", pricePerHour);
+        result.put("teacherPricePerHour", teacherPricePerHour);
         result.put("teacherEmail", teacherEmail);
         result.put("teacherSubjects", teacherSubjects);
         result.put("teacherValueToPay", teacherValueToPay);

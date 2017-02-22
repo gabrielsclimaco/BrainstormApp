@@ -49,7 +49,7 @@ public class SelectedTeacherActivity extends AppCompatActivity {
         setStringText((TextView) findViewById(R.id.teacher_cellphone_text), teacher.getTeacherCellphone());
         setStringText((TextView) findViewById(R.id.teacher_course_text), teacher.getTeacherCourse());
         setBooleanText((TextView) findViewById(R.id.teacher_car_text), teacher.getTeacherCar());
-        setStringText((TextView) findViewById(R.id.teacher_pricePerHour_text), teacher.getTeacherPricePerHour().toString()+"0");
+        setStringText((TextView) findViewById(R.id.teacher_pricePerHour_text), teacher.getTeacherPricePerHour().toString() + "0");
         setStringText((TextView) findViewById(R.id.teacher_email_text), teacher.getTeacherEmail());
         setSubjectText((TextView) findViewById(R.id.teacher_subjects_text), teacher.getTeacherSubjects());
 

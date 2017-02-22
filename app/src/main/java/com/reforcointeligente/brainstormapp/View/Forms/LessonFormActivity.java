@@ -2,6 +2,7 @@ package com.reforcointeligente.brainstormapp.View.Forms;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -17,6 +18,7 @@ import android.widget.TimePicker;
 
 import com.reforcointeligente.brainstormapp.Controller.FirebaseUtils;
 import com.reforcointeligente.brainstormapp.Controller.MoneyTextWatcher;
+import com.reforcointeligente.brainstormapp.Model.Lesson;
 import com.reforcointeligente.brainstormapp.R;
 
 import java.text.SimpleDateFormat;
@@ -27,6 +29,7 @@ import java.util.Locale;
 public class LessonFormActivity extends AppCompatActivity {
 
     final Calendar calendar = Calendar.getInstance();
+    Lesson lesson;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,13 @@ public class LessonFormActivity extends AppCompatActivity {
         maskMoneyFields();
 
         listenButtonClickEvents();
+
+        Intent intent = getIntent();
+        lesson = (Lesson) intent.getSerializableExtra("lesson");
+
+        if (lesson != null) {
+            FirebaseUtils.fillWithLessonInfo(lesson, this);
+        }
     }
 
     @Override
@@ -89,9 +99,14 @@ public class LessonFormActivity extends AppCompatActivity {
     }
 
     public void onLessonCreated() {
-        if(isLessonValid()){
+        if(isLessonValid()) {
             View view = findViewById(R.id.activity_lesson_form);
-            FirebaseUtils.saveLesson(view);
+
+            if (lesson == null) {
+                FirebaseUtils.saveLesson(view);
+            } else {
+                FirebaseUtils.updateLesson(lesson, view);
+            }
 
             finish();
         }

@@ -25,6 +25,7 @@ public class TeacherFormActivity extends AppCompatActivity {
     Button cancelTeacherButton;
     EditText teacherPhone;
     EditText teacherCellphone;
+    Teacher teacher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,7 @@ public class TeacherFormActivity extends AppCompatActivity {
         ((RadioButton) findViewById(R.id.radioButtonNo)).setChecked(true);
 
         Intent intent = getIntent();
-        Teacher teacher= (Teacher) intent.getSerializableExtra("teacher");
+        teacher = (Teacher) intent.getSerializableExtra("teacher");
 
         if(teacher != null) {
             FirebaseUtils.fillWithTeacherInfo(teacher, this);
@@ -109,7 +110,12 @@ public class TeacherFormActivity extends AppCompatActivity {
     public void onTeacherCreated() {
         if (isTeacherValid()) {
             View view = findViewById(R.id.activity_teacher_form);
-            FirebaseUtils.saveTeacher(view);
+
+            if (teacher == null) {
+                FirebaseUtils.saveTeacher(view);
+            } else {
+                FirebaseUtils.updateTeacher(teacher, view);
+            }
 
             finish();
         }

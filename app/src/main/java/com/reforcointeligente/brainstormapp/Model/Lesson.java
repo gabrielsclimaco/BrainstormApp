@@ -2,6 +2,8 @@ package com.reforcointeligente.brainstormapp.Model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Lesson implements Serializable {
     private String lessonDate;
@@ -20,7 +22,7 @@ public class Lesson implements Serializable {
 
     public Lesson(String lessonDate, String lessonTime, String lessonTeacher, String lessonStudent,
                   ArrayList<String> lessonSubject, String lessonPlace, Double lessonDisplacement,
-                  Double lessonValuePerHour, Double lessonDuration) {
+                  Double lessonValuePerHour, Double lessonDuration, Double lessonProfit) {
         this.lessonDate = lessonDate;
         this.lessonTime = lessonTime;
         this.lessonTeacher = lessonTeacher;
@@ -30,6 +32,7 @@ public class Lesson implements Serializable {
         this.lessonDisplacement = lessonDisplacement;
         this.lessonValuePerHour = lessonValuePerHour;
         this.lessonDuration = lessonDuration;
+        this.lessonProfit = lessonProfit;
     }
 
     public String getLessonDate() {
@@ -119,5 +122,23 @@ public class Lesson implements Serializable {
 
     public void setLessonProfit(Double profit) {
         this.lessonProfit = profit;
+    }
+
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap<>();
+
+        result.put("lessonDate", lessonDate);
+        result.put("lessonTime", lessonTime);
+        result.put("lessonTeacher", lessonTeacher);
+        result.put("lessonStudent", lessonStudent);
+        result.put("lessonSubjects", lessonSubjects);
+        result.put("lessonPlace", lessonPlace);
+        result.put("lessonDisplacement", lessonDisplacement);
+        result.put("lessonValuePerHour", lessonValuePerHour);
+        result.put("lessonDuration", lessonDuration);
+        result.put("lessonTotalValue", lessonTotalValue);
+        result.put("lessonProfit", lessonProfit);
+
+        return result;
     }
 }

@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.firebase.database.FirebaseDatabase;
 import com.reforcointeligente.brainstormapp.Controller.BrPhoneNumberFormatter;
@@ -26,6 +27,8 @@ import java.lang.ref.WeakReference;
 public class StudentFormActivity extends AppCompatActivity {
     EditText parentPhone;
     EditText parentCellphone;
+    Student student;
+    Student oldStudent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +46,8 @@ public class StudentFormActivity extends AppCompatActivity {
         listenButtonClickEvents();
 
         Intent intent = getIntent();
-        Student student = (Student) intent.getSerializableExtra("student");
+        student = (Student) intent.getSerializableExtra("student");
+        oldStudent = (Student) intent.getSerializableExtra("student");
 
         if(student != null) {
             FirebaseUtils.fillWithStudentInfo(student, this);
@@ -101,7 +105,12 @@ public class StudentFormActivity extends AppCompatActivity {
     public void onStudentCreated() {
         if (isStudentFormValid()) {
             View view = findViewById(R.id.activity_student_form);
-            FirebaseUtils.saveStudent(view);
+
+            if (student == null) {
+                FirebaseUtils.saveStudent(view);
+            } else {
+                FirebaseUtils.updateStudent(student, view);
+            }
 
             finish();
         }
